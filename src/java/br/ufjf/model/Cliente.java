@@ -27,7 +27,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Cliente.findAll", query = "SELECT c FROM Cliente c"),
     @NamedQuery(name = "Cliente.findByCodigoCli", query = "SELECT c FROM Cliente c WHERE c.codigoCli = :codigoCli"),
-    @NamedQuery(name = "Cliente.findBySenhaCli", query = "SELECT c FROM Cliente c WHERE c.senhaCli = :senhaCli")})
+    @NamedQuery(name = "Cliente.findBySenhaCli", query = "SELECT c FROM Cliente c WHERE c.senhaCli = :senhaCli"),
+    @NamedQuery(name="Cliente.findExistsCliente", query="SELECT c FROM Usuario c WHERE " + "c.login = :login and "
+                    + "c.senha = :senha")})
 public class Cliente implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

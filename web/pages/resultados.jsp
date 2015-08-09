@@ -4,6 +4,9 @@
     Author     : clodoaldo
 --%>
 
+<%@page import="java.sql.SQLException"%>
+<%@page import="br.ufjf.dao.ClienteDAO"%>
+<%@page import="br.ufjf.model.Cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,7 +23,7 @@
             if(!request.getParameter("codigoCli").isEmpty() && !request.getParameter("senhaCli").isEmpty()){
             out.println("<h1><font color=blue >Cliente: "+request.getParameter("codigoCli")
                     +"<br> Senha: "+request.getParameter("senhaCli")+"</font><br></h1>");
-            }
+            }        
          
          
          

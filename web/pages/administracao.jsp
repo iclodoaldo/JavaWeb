@@ -9,6 +9,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     Usuario u = (Usuario)session.getAttribute("usuario");
+    
 %>
 
 <!DOCTYPE html>

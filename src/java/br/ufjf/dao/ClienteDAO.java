@@ -5,54 +5,49 @@
  */
 package br.ufjf.dao;
 
+import br.ufjf.model.Cliente;
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NoResultException;
+import javax.persistence.NonUniqueResultException;
+import javax.persistence.Query;
 
 /**
  *
  * @author clodoaldo
  */
-@Entity
+
 public class ClienteDAO implements Serializable {
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    public Long getId() {
-        return id;
+    
+    public ClienteDAO (EntityManagerFactory emf){
+        this.emf=emf;
     }
-
-    public void setId(Long id) {
-        this.id = id;
+    private static EntityManagerFactory emf=null;
+    
+    public static EntityManager getEntityManager(){
+        return emf.createEntityManager();
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof ClienteDAO)) {
-            return false;
-        }
-        ClienteDAO other = (ClienteDAO) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "br.ufjf.dao.ClienteDAO[ id=" + id + " ]";
+    public ClienteDAO() {
     }
     
+    public static Cliente getClientePorLoginESenha(String codigoCli, String senhaCli){
+        Query c = getEntityManager().createNamedQuery("Cliente.findExistsCliente");
+        c.setParameter("codigoCli", codigoCli);
+        c.setParameter("senhaCli", senhaCli);
+        
+        try{
+            return (Cliente) c.getSingleResult();
+        }catch (NoResultException e){
+            return null;
+        }catch (NonUniqueResultException e){
+            List<Cliente> lista =c.getResultList();
+            return lista.get(0);
+        }
+    }  
 }
