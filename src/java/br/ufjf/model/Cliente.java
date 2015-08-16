@@ -12,6 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -26,47 +28,123 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Cliente.findAll", query = "SELECT c FROM Cliente c"),
-    @NamedQuery(name = "Cliente.findByCodigoCli", query = "SELECT c FROM Cliente c WHERE c.codigoCli = :codigoCli"),
-    @NamedQuery(name = "Cliente.findBySenhaCli", query = "SELECT c FROM Cliente c WHERE c.senhaCli = :senhaCli"),
-    @NamedQuery(name="Cliente.findExistsCliente", query="SELECT c FROM Usuario c WHERE " + "c.login = :login and "
-                    + "c.senha = :senha")})
+    @NamedQuery(name = "Cliente.findByCodigo", query = "SELECT c FROM Cliente c WHERE c.codigo = :codigo"),
+    @NamedQuery(name = "Cliente.findByNome", query = "SELECT c FROM Cliente c WHERE c.nome = :nome"),
+    @NamedQuery(name = "Cliente.findByCpf", query = "SELECT c FROM Cliente c WHERE c.cpf = :cpf"),
+    @NamedQuery(name = "Cliente.findBySexo", query = "SELECT c FROM Cliente c WHERE c.sexo = :sexo"),
+    @NamedQuery(name = "Cliente.findByTelefone", query = "SELECT c FROM Cliente c WHERE c.telefone = :telefone"),
+    @NamedQuery(name = "Cliente.findByEmail", query = "SELECT c FROM Cliente c WHERE c.email = :email"),
+    @NamedQuery(name = "Cliente.findByLogin", query = "SELECT c FROM Cliente c WHERE c.login = :login"),
+    @NamedQuery(name = "Cliente.findBySenha", query = "SELECT c FROM Cliente c WHERE c.senha = :senha"),
+    @NamedQuery (name="Cliente.findExistsCliente", query= "SELECT c FROM Cliente c WHERE c.login = :login AND c.senha = :senha")})
 public class Cliente implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "codigoCli")
-    private Integer codigoCli;
-    @Column(name = "senhaCli")
-    private String senhaCli;
+    @Column(name = "codigo")
+    private Integer codigo;
+    @Column(name = "nome")
+    private String nome;
+    @Column(name = "cpf")
+    private String cpf;
+    @Column(name = "sexo")
+    private String sexo;
+    @Column(name = "telefone")
+    private String telefone;
+    @Column(name = "email")
+    private String email;
+    @Column(name = "login")
+    private String login;
+    @Column(name = "senha")
+    private String senha;
+    @JoinColumn(name = "endereco", referencedColumnName = "idEndereco")
+    @ManyToOne(optional = false)
+    private Endereco endereco;
 
     public Cliente() {
     }
 
-    public Cliente(Integer codigoCli) {
-        this.codigoCli = codigoCli;
+    public Cliente(Integer codigo) {
+        this.codigo = codigo;
     }
 
-    public Integer getCodigoCli() {
-        return codigoCli;
+    public Integer getCodigo() {
+        return codigo;
     }
 
-    public void setCodigoCli(Integer codigoCli) {
-        this.codigoCli = codigoCli;
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
     }
 
-    public String getSenhaCli() {
-        return senhaCli;
+    public String getNome() {
+        return nome;
     }
 
-    public void setSenhaCli(String senhaCli) {
-        this.senhaCli = senhaCli;
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (codigoCli != null ? codigoCli.hashCode() : 0);
+        hash += (codigo != null ? codigo.hashCode() : 0);
         return hash;
     }
 
@@ -77,7 +155,7 @@ public class Cliente implements Serializable {
             return false;
         }
         Cliente other = (Cliente) object;
-        if ((this.codigoCli == null && other.codigoCli != null) || (this.codigoCli != null && !this.codigoCli.equals(other.codigoCli))) {
+        if ((this.codigo == null && other.codigo != null) || (this.codigo != null && !this.codigo.equals(other.codigo))) {
             return false;
         }
         return true;
@@ -85,7 +163,7 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "br.ufjf.dao.Cliente[ codigoCli=" + codigoCli + " ]";
+        return "br.ufjf.model.Cliente[ codigo=" + codigo + " ]";
     }
     
 }

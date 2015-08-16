@@ -1,30 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.ufjf.dao;
 
-import br.ufjf.dao.exceptions.IllegalOrphanException;
-import br.ufjf.dao.exceptions.NonexistentEntityException;
-import java.io.Serializable;
-import javax.persistence.Query;
-import javax.persistence.EntityNotFoundException;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 import br.ufjf.model.Usuario;
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.NonUniqueResultException;
+import javax.persistence.Query;
 
-/**
- *
- * @author Daves
- */
-public class UsuarioDAO implements Serializable {
+public class UsuarioDAO {
 
     public UsuarioDAO (EntityManagerFactory emf) {
         this.emf = emf;

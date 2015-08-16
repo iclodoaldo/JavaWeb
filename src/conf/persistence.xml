@@ -10,6 +10,7 @@
     <class>br.ufjf.dao.TipoExameDAO</class>
     <class>br.ufjf.dao.ExamesDAO</class>
     <class>br.ufjf.dao.UsuarioDAO</class>
+    <class>br.ufjf.model.Endereco</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/laboratorio?zeroDateTimeBehavior=convertToNull"/>

@@ -80,6 +80,8 @@ public class Controller extends HttpServlet {
                     = request.getRequestDispatcher("template.jsp?page=portfolio");
             rd.forward(request, response);
         } else if (action.equals("resultados")) {
+            String login = request.getParameter("login");
+            String senha = request.getParameter("senha");
             RequestDispatcher rd
                     = request.getRequestDispatcher("template.jsp?page=resultados");
             rd.forward(request, response);

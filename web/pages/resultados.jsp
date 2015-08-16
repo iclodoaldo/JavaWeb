@@ -4,6 +4,8 @@
     Author     : clodoaldo
 --%>
 
+<%@page import="javax.swing.JOptionPane"%>
+<%@page import="br.ufjf.dao.BancoDados"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="br.ufjf.dao.ClienteDAO"%>
 <%@page import="br.ufjf.model.Cliente"%>
@@ -21,10 +23,21 @@
         <br>
         <% 
             if(!request.getParameter("codigoCli").isEmpty() && !request.getParameter("senhaCli").isEmpty()){
-            out.println("<h1><font color=blue >Cliente: "+request.getParameter("codigoCli")
-                    +"<br> Senha: "+request.getParameter("senhaCli")+"</font><br></h1>");
-            }        
+                ClienteDAO x = new ClienteDAO(BancoDados.retornaBanco());
+                try{
+                Cliente eu = x.getClientePorLoginESenha(request.getParameter("codigoCli"), request.getParameter("senhaCli"));
+                JOptionPane.showMessageDialog(null, eu.getNome());
+                out.println("<h1><font color=blue >Bem vindo Sr(a): "+eu.getNome()+"</font><br></h1>");
+
+                
+                
+                
+                }catch (Exception e){
+                    out.print("Codigo de acesso ou senha incorretos... ");
+                }
+                            }        
          
+        
          
          
          %>
