@@ -1,7 +1,7 @@
 
 package br.ufjf.dao;
 
-import br.ufjf.model.Exames;
+import br.ufjf.model.Exame;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

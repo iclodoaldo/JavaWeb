@@ -39,7 +39,7 @@ img {border: none;}
         	
             <form method="POST" action="?">
                         <h1 class="none">Resultado Online!</h1>
-                        Digite o Codigo de Cliente
+                        Digite o CPF de Cliente
                         <input type="hidden" name="action" value="resultados">
                         <br> <input type="text" name="codigoCli" value=""><br>
                         Digite a Senha de Acesso
