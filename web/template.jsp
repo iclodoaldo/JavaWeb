@@ -1,5 +1,5 @@
 <head>
-<title>Laboratorio Pos!</title>
+<title>CRM Laboratorios!</title>
 <link href="css/reset.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/typography.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/main.css" rel="stylesheet" type="text/css" />
@@ -24,7 +24,7 @@ img {border: none;}
  </div>
  <!--END OF TERMS OF USE-->
 	<div id="leftcol">
-    	<h1 id="logo"><a href="?">Corporative </a></h1>
+    	<h1 id="logo"><a href="?">CRM Laboratórios </a></h1>
         <div id="mainnav">
         	<ul>
             	<li><a href="?"><span>Home</span></a></li>
@@ -51,13 +51,13 @@ img {border: none;}
                 
         </div>
         <div class="module-box">
-        	<h2 class="orange">News</h2>
+        	<h2 class="orange">Notícias</h2>
             <div class="module-content">
             	<ul class="none">
                 	<li>
                     	<strong><a href="?" class="black">01 Junho 2015</a></strong>
-                        <p>Estamos disponibilizando tambem exames de imagens!</p>
-                        <a href="?">Read news</a>
+                        <p>Estamos disponibilizando tambem resultado de exames de imagens!</p>
+                        <a href="?">Leia</a>
                     </li>
                     <li>
                     	<strong><a href="?" class="black">01 de Junho 2015</a></strong>
