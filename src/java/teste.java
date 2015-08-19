@@ -3,7 +3,7 @@ import br.ufjf.dao.BancoDados;
 import br.ufjf.dao.ClienteDAO;
 import br.ufjf.dao.ExamesDAO;
 import br.ufjf.model.Cliente;
-import br.ufjf.model.Exame;
+import br.ufjf.model.Exames;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
@@ -34,9 +34,9 @@ public class teste {
         EntityManager conexao =  BancoDados.retornaBanco().createEntityManager();
         ExamesDAO ex = new ExamesDAO();
         
-        List<Exame> lista = conexao.createNamedQuery("Exames.findByCodigoCliente").getResultList();
-         for (Exame exame: lista){
-         JOptionPane.showMessageDialog(null, exame.getCodigo());
+        List<Exames> lista = conexao.createNamedQuery("Exames.findByCodigoCliente").getResultList();
+         for (Exames exames: lista){
+         JOptionPane.showMessageDialog(null, exames.getCodigoExame());
          }
         
         

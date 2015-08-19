@@ -6,18 +6,16 @@
 package br.ufjf.model;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -28,17 +26,20 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "TipoExame.findAll", query = "SELECT t FROM TipoExame t"),
-    @NamedQuery(name = "TipoExame.findByCodigoTipo", query = "SELECT t FROM TipoExame t WHERE t.codigoTipo = :codigoTipo"),
+    @NamedQuery(name = "TipoExame.findByCodigoExame", query = "SELECT t FROM TipoExame t WHERE t.codigoExame = :codigoExame"),
     @NamedQuery(name = "TipoExame.findByNomeExame", query = "SELECT t FROM TipoExame t WHERE t.nomeExame = :nomeExame"),
     @NamedQuery(name = "TipoExame.findByCusto", query = "SELECT t FROM TipoExame t WHERE t.custo = :custo"),
     @NamedQuery(name = "TipoExame.findByHoraJenjum", query = "SELECT t FROM TipoExame t WHERE t.horaJenjum = :horaJenjum"),
+    @NamedQuery(name = "TipoExame.findByDataExame", query = "SELECT t FROM TipoExame t WHERE t.dataExame = :dataExame"),
+    @NamedQuery(name = "TipoExame.findByDataEntrega", query = "SELECT t FROM TipoExame t WHERE t.dataEntrega = :dataEntrega"),
     @NamedQuery(name = "TipoExame.findByPrazoEntrega", query = "SELECT t FROM TipoExame t WHERE t.prazoEntrega = :prazoEntrega")})
 public class TipoExame implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "codigoTipo")
-    private Integer codigoTipo;
+    @Column(name = "codigoExame")
+    private Integer codigoExame;
     @Column(name = "nomeExame")
     private String nomeExame;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
@@ -46,24 +47,26 @@ public class TipoExame implements Serializable {
     private Double custo;
     @Column(name = "horaJenjum")
     private Integer horaJenjum;
+    @Column(name = "dataExame")
+    private String dataExame;
+    @Column(name = "dataEntrega")
+    private String dataEntrega;
     @Column(name = "prazoEntrega")
     private Integer prazoEntrega;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoTipo")
-    private List<Exame> exameList;
 
     public TipoExame() {
     }
 
-    public TipoExame(Integer codigoTipo) {
-        this.codigoTipo = codigoTipo;
+    public TipoExame(Integer codigoExame) {
+        this.codigoExame = codigoExame;
     }
 
-    public Integer getCodigoTipo() {
-        return codigoTipo;
+    public Integer getCodigoExame() {
+        return codigoExame;
     }
 
-    public void setCodigoTipo(Integer codigoTipo) {
-        this.codigoTipo = codigoTipo;
+    public void setCodigoExame(Integer codigoExame) {
+        this.codigoExame = codigoExame;
     }
 
     public String getNomeExame() {
@@ -90,6 +93,22 @@ public class TipoExame implements Serializable {
         this.horaJenjum = horaJenjum;
     }
 
+    public String getDataExame() {
+        return dataExame;
+    }
+
+    public void setDataExame(String dataExame) {
+        this.dataExame = dataExame;
+    }
+
+    public String getDataEntrega() {
+        return dataEntrega;
+    }
+
+    public void setDataEntrega(String dataEntrega) {
+        this.dataEntrega = dataEntrega;
+    }
+
     public Integer getPrazoEntrega() {
         return prazoEntrega;
     }
@@ -98,19 +117,10 @@ public class TipoExame implements Serializable {
         this.prazoEntrega = prazoEntrega;
     }
 
-    @XmlTransient
-    public List<Exame> getExameList() {
-        return exameList;
-    }
-
-    public void setExameList(List<Exame> exameList) {
-        this.exameList = exameList;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (codigoTipo != null ? codigoTipo.hashCode() : 0);
+        hash += (codigoExame != null ? codigoExame.hashCode() : 0);
         return hash;
     }
 
@@ -121,7 +131,7 @@ public class TipoExame implements Serializable {
             return false;
         }
         TipoExame other = (TipoExame) object;
-        if ((this.codigoTipo == null && other.codigoTipo != null) || (this.codigoTipo != null && !this.codigoTipo.equals(other.codigoTipo))) {
+        if ((this.codigoExame == null && other.codigoExame != null) || (this.codigoExame != null && !this.codigoExame.equals(other.codigoExame))) {
             return false;
         }
         return true;
@@ -129,7 +139,7 @@ public class TipoExame implements Serializable {
 
     @Override
     public String toString() {
-        return "br.ufjf.model.TipoExame[ codigoTipo=" + codigoTipo + " ]";
+        return "br.ufjf.model.TipoExame[ codigoExame=" + codigoExame + " ]";
     }
     
 }
