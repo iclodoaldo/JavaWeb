@@ -28,9 +28,9 @@ public class ClienteDAO{
     public ClienteDAO() {
     }
     
-    public static Cliente getClientePorLoginESenha(String login, String senha){
+    public static Cliente getClientePorLoginESenha(String cpf, String senha){
         Query c = getEntityManager().createNamedQuery("Cliente.findExistsCliente");
-        c.setParameter("login", login);
+        c.setParameter("cpf", cpf);
         c.setParameter("senha", senha);
         
         try{

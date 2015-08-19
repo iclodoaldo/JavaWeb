@@ -6,7 +6,9 @@
 package br.ufjf.model;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,8 +18,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -36,7 +40,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Cliente.findByEmail", query = "SELECT c FROM Cliente c WHERE c.email = :email"),
     @NamedQuery(name = "Cliente.findByLogin", query = "SELECT c FROM Cliente c WHERE c.login = :login"),
     @NamedQuery(name = "Cliente.findBySenha", query = "SELECT c FROM Cliente c WHERE c.senha = :senha"),
-    @NamedQuery (name="Cliente.findExistsCliente", query= "SELECT c FROM Cliente c WHERE c.login = :login AND c.senha = :senha")})
+    @NamedQuery(name = "Cliente.findExistsCliente", query= "SELECT c FROM Cliente c WHERE c.cpf = :cpf AND c.senha = :senha")
+})
 public class Cliente implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -61,6 +66,8 @@ public class Cliente implements Serializable {
     @JoinColumn(name = "endereco", referencedColumnName = "idEndereco")
     @ManyToOne(optional = false)
     private Endereco endereco;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoCliente")
+    private List<Exame> exameList;
 
     public Cliente() {
     }
@@ -139,6 +146,15 @@ public class Cliente implements Serializable {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+
+    @XmlTransient
+    public List<Exame> getExameList() {
+        return exameList;
+    }
+
+    public void setExameList(List<Exame> exameList) {
+        this.exameList = exameList;
     }
 
     @Override

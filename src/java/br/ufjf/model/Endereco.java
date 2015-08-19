@@ -6,7 +6,7 @@
 package br.ufjf.model;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -54,7 +54,7 @@ public class Endereco implements Serializable {
     @Column(name = "UF")
     private String uf;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "endereco")
-    private Collection<Cliente> clienteCollection;
+    private List<Cliente> clienteList;
 
     public Endereco() {
     }
@@ -120,12 +120,12 @@ public class Endereco implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Cliente> getClienteCollection() {
-        return clienteCollection;
+    public List<Cliente> getClienteList() {
+        return clienteList;
     }
 
-    public void setClienteCollection(Collection<Cliente> clienteCollection) {
-        this.clienteCollection = clienteCollection;
+    public void setClienteList(List<Cliente> clienteList) {
+        this.clienteList = clienteList;
     }
 
     @Override
