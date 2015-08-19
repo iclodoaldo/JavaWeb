@@ -4,6 +4,7 @@
     Author     : clodoaldo
 --%>
 
+<%@page import="br.ufjf.dao.ExamesDAO"%>
 <%@page import="javax.swing.JOptionPane"%>
 <%@page import="br.ufjf.dao.BancoDados"%>
 <%@page import="java.sql.SQLException"%>
@@ -26,17 +27,12 @@
                 ClienteDAO x = new ClienteDAO(BancoDados.retornaBanco());
                 try{
                 Cliente eu = x.getClientePorLoginESenha(request.getParameter("codigoCli"), request.getParameter("senhaCli"));
-                JOptionPane.showMessageDialog(null, eu.getNome());
                 out.println("<h1><font color=blue >Bem vindo Sr(a): "+eu.getNome()+"</font><br></h1>");
-
-                
-                
-                
                 }catch (Exception e){
                     out.print("Codigo de acesso ou senha incorretos... ");
                 }
                             }        
-         
+                
         
          
          

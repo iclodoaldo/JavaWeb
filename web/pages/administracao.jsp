@@ -19,15 +19,20 @@
         <title>Laboratorio de Pos!</title>
     </head>
     <body>
-        <h1>Bem Vindo <font color="red" >
+       <div title="FALTA IMPLEMENTAR O LOGOF">
+           <h1>Bem Vindo <font color="blue" >
             
-            <%= u.getNome() %>
+            <b><%= u.getNome() %>! </b>
+                       
+            <a href=""><b>Sair!</b></a>
             
-            </font>!</h1>
+            </font></h1>
+       </div>
         <br>
         <h1>Aqui nossa pagina de administrador</h1>
         <h1>INSIRA AQUI OS LINKS DAS DIVERSAR FUNCOES POSSIVEIS!</h1>
         <br><br>
+        <h2>Usuarios! - <font color="red">(Inserir, Exibir, Alterar e Excluir).</font></h2>
         <h2>Clientes! - <font color="red">(Inserir, Exibir, Alterar e Excluir).</font></h2>
         <h2>Tipos de Exames! - <font color="red">(Inserir, Exibir, Alterar e Excluir).</font></h2>
         <h2>Exames Realizados! - <font color="red">(Inserir, Exibir, Alterar e Excluir).</font></h2>

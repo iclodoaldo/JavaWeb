@@ -1,3 +1,19 @@
+<%@page import="javax.swing.JOptionPane"%>
+<%@page import="br.ufjf.model.Usuario"%>
+<%
+
+try {
+     Usuario u = (Usuario)request.getSession().getAttribute("usuario");
+    //out.print(u.getNome());
+     
+    
+                            %>                                 
+                            <jsp:include page="administracao.jsp" />
+                            <%
+}catch (Exception e){
+    
+%>
+
 <br><h2>Acesso Restrito!</h2>
 <div class="login">
     <center>
@@ -23,3 +39,9 @@
     </form></center>
 </div>
     <br><br><br><br><br><br><br><br><br><br><br>
+
+
+<%
+}
+
+%>

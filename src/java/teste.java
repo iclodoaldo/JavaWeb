@@ -1,8 +1,13 @@
 
 import br.ufjf.dao.BancoDados;
 import br.ufjf.dao.ClienteDAO;
+import br.ufjf.dao.ExamesDAO;
 import br.ufjf.model.Cliente;
+import br.ufjf.model.Exames;
+import java.util.List;
+import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import javax.swing.JOptionPane;
 
 /*
@@ -25,6 +30,20 @@ public class teste {
         Cliente eu = ClienteDAO.getClientePorLoginESenha("clodoaldo", "12345");
         JOptionPane.showMessageDialog(null, eu.getNome());
         }else{System.out.println("cliente ou senha incorretos...");}
+        
+        EntityManager conexao =  BancoDados.retornaBanco().createEntityManager();
+        ExamesDAO ex = new ExamesDAO();
+        
+        List<Exames> lista = conexao.createNamedQuery("Exames.findByCodigoCliente").getResultList();
+         for (Exames exames: lista){
+         JOptionPane.showMessageDialog(null, exames.getCodigoExame());
+         }
+        
+        
+        
+        
+        
+        
         
     }
     
