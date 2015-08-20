@@ -9,20 +9,28 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Laboratorio de Pos!</title>
+        <title>CRM Laboratorios</title>
     </head>
-    <body>
-        <h1>Bem Vindo Visitante!</h1>
+    <body> <br><br>
+        <h1>Confira aqui os exames disponíveis!</h1>
         <br>
-        <h1>Aqui nossa pagina de Portfolio</h1>
-        <h1>INSIRA AQUI OS TIPOS DE EXAMES DISPONIVEIS!</h1>
-        <br><br>EXAMES:<br>
-        <h2><font color="red"> - Sangue.</font></h2>
-        <h2><font color="red"> - Urina.</font></h2>
-        <h2><font color="red"> - Fezes.</font></h2>
-        <h2><font color="red"> - Colesterol.</font></h2>
-        <h2><font color="red"> - Glicemia.</font></h2>
-        <h2><font color="red"> - Etc.</font></h2>
+        <h2><font color="red"> - Hemograma completo</font></h2>
+        <h2><font color="red"> - Urina</font></h2>
+        <h2><font color="red"> - Fezes</font></h2>
+        <h2><font color="red"> - Colesterol</font></h2>
+        <h2><font color="red"> - Glicemia</font></h2>
+        <h2><font color="red"> - Alfa Androstanediol Glicuronídeo</font></h2>
+        <h2><font color="red"> - Nucleotidase</font></h2>
+        <h2><font color="red"> - Radiografia panorâmica de toda a coluna vertebral</font></h2>
+        <h2><font color="red"> - Eletroforese de lipoproteínas</font></h2>
+        <h2><font color="red"> - Prova de função pumonar</font></h2>
+        <h2><font color="red"> - Momografia</font></h2>
+        <h2><font color="red"> - Desintometria óssea</font></h2>
+        <h2><font color="red"> - Tomografia Computadorizada</font></h2>
+        <h2><font color="red"> - Ultra-sonografia</font></h2>
+        <h2><font color="red"> - Ecografia</font></h2>
+        <h2><font color="red"> - Ecodopler</font></h2>
+        
         <br><br><br>
         
     </body>

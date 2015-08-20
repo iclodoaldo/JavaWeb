@@ -80,7 +80,7 @@
         </div>
         <div id="rightcol">
             <div id="header" class="clearfix">
-                <div id="call">call: 1800 365 632</div>
+                <div id="call">Telefone: 0800 365 6322</div>
                 <div id="search"><input type="text" style="with: 160px;" value="" id="input-search" /><input type="submit" value="ok" id="ok" /></div>
             </div>
             <div id="banner">
