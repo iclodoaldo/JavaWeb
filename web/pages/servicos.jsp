@@ -9,23 +9,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Laboratorio de Pos!</title>
+        <title>CRM Laboratorios</title>
     </head>
     <body>
-        <h1>Bem Vindo Visitante!</h1>
-        <br>
-        <h1>Aqui nossa pagina de Servicos</h1>
-        <h1>INSIRA AQUI OS TIPOS DE SERVICOS DISPONIVEIS!</h1>
+
         <br><br>
-        <h2>Resultados Online!<br>
-        <font color="red">(Clique no link ao lado informando seu codigo de cliente e sua senha
-        que acompanha o seu protocolo de atendimento).</font></h2>
-        <br><h2>Agendamento de Atendimentos!
-        <br> <font color="red">(Telefones disponiveis, FAX, Fixo, Celular).</font></h2>
-        <br><h2>Coleta em domicilio!
-        <br>
-        <font color="red">(Telefones disponiveis, FAX, Fixo, Celular).</font></h2>
-        <br><br><br><br><br>
-        
+        <h1>Serviços:</h1> <br><br>
+        <h2>Resultados Online!</h2><br>
+        <h3>Clique no link ao lado informando seu codigo de cliente e sua senha
+            que acompanha o seu protocolo de atendimento para ter acesso a todos seus exames).</h3>
+        <br><h2>Agendamento de Atendimentos!</h2>
+        <br><h3> Veja os telefones e endereços para agendamento clicando <a href="?action=contato"><font color="blue">aqui</font></a>.</h3>
+        <br><h2>Coleta em domicilio!</h2>
+        <br><h3> Veja os telefones e endereços para agendamento de coleta de material clicando <a href="?action=contato"><font color="blue">aqui</font></a>.</h3>
+
     </body>
 </html>
