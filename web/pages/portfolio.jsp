@@ -14,22 +14,22 @@
     <body> <br><br>
         <h1>Confira aqui os exames disponíveis!</h1>
         <br>
-        <h2><font color="red"> - Hemograma completo</font></h2>
-        <h2><font color="red"> - Urina</font></h2>
-        <h2><font color="red"> - Fezes</font></h2>
-        <h2><font color="red"> - Colesterol</font></h2>
-        <h2><font color="red"> - Glicemia</font></h2>
-        <h2><font color="red"> - Alfa Androstanediol Glicuronídeo</font></h2>
-        <h2><font color="red"> - Nucleotidase</font></h2>
-        <h2><font color="red"> - Radiografia panorâmica de toda a coluna vertebral</font></h2>
-        <h2><font color="red"> - Eletroforese de lipoproteínas</font></h2>
-        <h2><font color="red"> - Prova de função pumonar</font></h2>
-        <h2><font color="red"> - Momografia</font></h2>
-        <h2><font color="red"> - Desintometria óssea</font></h2>
-        <h2><font color="red"> - Tomografia Computadorizada</font></h2>
-        <h2><font color="red"> - Ultra-sonografia</font></h2>
-        <h2><font color="red"> - Ecografia</font></h2>
-        <h2><font color="red"> - Ecodopler</font></h2>
+        <h2><font color="black"> - Hemograma completo</font></h2>
+        <h2><font color="black"> - Urina</font></h2>
+        <h2><font color="black"> - Fezes</font></h2>
+        <h2><font color="black"> - Colesterol</font></h2>
+        <h2><font color="black"> - Glicemia</font></h2>
+        <h2><font color="black"> - Alfa Androstanediol Glicuronídeo</font></h2>
+        <h2><font color="black"> - Nucleotidase</font></h2>
+        <h2><font color="black"> - Radiografia panorâmica de toda a coluna vertebral</font></h2>
+        <h2><font color="black"> - Eletroforese de lipoproteínas</font></h2>
+        <h2><font color="black"> - Prova de função pumonar</font></h2>
+        <h2><font color="black"> - Momografia</font></h2>
+        <h2><font color="black"> - Desintometria óssea</font></h2>
+        <h2><font color="black"> - Tomografia Computadorizada</font></h2>
+        <h2><font color="black"> - Ultra-sonografia</font></h2>
+        <h2><font color="black"> - Ecografia</font></h2>
+        <h2><font color="black"> - Ecodopler</font></h2>
         
         <br><br><br>
         
