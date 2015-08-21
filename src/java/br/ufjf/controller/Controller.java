@@ -51,7 +51,7 @@ public class Controller extends HttpServlet {
             String login = request.getParameter("cpLogin");
             String senha = request.getParameter("cpSenha");
 
-            Usuario u = new UsuarioDAO(emf).getUsuarioByLoginAndPassword(login, senha);
+            Usuario u = new UsuarioDAO().getUsuarioByLoginAndPassword(login, senha);
             if (u == null) {
                 RequestDispatcher rd
                         = request.getRequestDispatcher("template.jsp?page=login");

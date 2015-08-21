@@ -26,39 +26,42 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u"),
-    @NamedQuery(name = "Usuario.findById", query = "SELECT u FROM Usuario u WHERE u.id = :id"),
+    @NamedQuery(name = "Usuario.findByMatricula", query = "SELECT u FROM Usuario u WHERE u.matricula = :matricula"),
     @NamedQuery(name = "Usuario.findByNome", query = "SELECT u FROM Usuario u WHERE u.nome = :nome"),
     @NamedQuery(name = "Usuario.findByLogin", query = "SELECT u FROM Usuario u WHERE u.login = :login"),
     @NamedQuery(name = "Usuario.findBySenha", query = "SELECT u FROM Usuario u WHERE u.senha = :senha"),
-    @NamedQuery(name="Usuario.findExistsUser", query="SELECT u FROM Usuario u WHERE " + "u.login = :login and "
-                    + "u.senha = :senha")})
+    @NamedQuery(name = "Usuario.findByCpf", query = "SELECT u FROM Usuario u WHERE u.cpf = :cpf"),
+    @NamedQuery (name="Usuario.findExistsUser", query= "SELECT u FROM Usuario u WHERE u.login = :login AND u.senha = :senha")
+})
 public class Usuario implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id")
-    private Integer id;
+    @Column(name = "matricula")
+    private Integer matricula;
     @Column(name = "nome")
     private String nome;
     @Column(name = "login")
     private String login;
     @Column(name = "senha")
     private String senha;
+    @Column(name = "cpf")
+    private String cpf;
 
     public Usuario() {
     }
 
-    public Usuario(Integer id) {
-        this.id = id;
+    public Usuario(Integer matricula) {
+        this.matricula = matricula;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getMatricula() {
+        return matricula;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setMatricula(Integer matricula) {
+        this.matricula = matricula;
     }
 
     public String getNome() {
@@ -85,10 +88,18 @@ public class Usuario implements Serializable {
         this.senha = senha;
     }
 
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (matricula != null ? matricula.hashCode() : 0);
         return hash;
     }
 
@@ -99,7 +110,7 @@ public class Usuario implements Serializable {
             return false;
         }
         Usuario other = (Usuario) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.matricula == null && other.matricula != null) || (this.matricula != null && !this.matricula.equals(other.matricula))) {
             return false;
         }
         return true;
@@ -107,7 +118,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "br.ufjf.model.Usuario[ id=" + id + " ]";
+        return "br.ufjf.model.Usuario[ matricula=" + matricula + " ]";
     }
     
 }
