@@ -1,11 +1,5 @@
-<%@page import="br.ufjf.model.Usuario"%>
-<%@page import="org.apache.catalina.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%
-    Usuario u = (Usuario)session.getAttribute("usuario");
-    
-%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

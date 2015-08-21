@@ -55,15 +55,15 @@ public class Controller extends HttpServlet {
             if (u == null) {
                 RequestDispatcher rd
                         = request.getRequestDispatcher("template.jsp?page=login");
-                request.setAttribute("msg","Login ou Senha Incorreta!!!");
+                request.setAttribute("msg", "Login ou Senha Incorreta!!!");
                 rd.forward(request, response);
-            }else{
+            } else {
                 request.getSession().setAttribute("usuario", u);
                 RequestDispatcher rd
-                    = request.getRequestDispatcher("template.jsp?page=administracao");
-            rd.forward(request, response);
+                        = request.getRequestDispatcher("template.jsp?page=administracao");
+                rd.forward(request, response);
             }
-            }else if (action.equals("administracao")) {
+        } else if (action.equals("administracao")) {
             RequestDispatcher rd
                     = request.getRequestDispatcher("template.jsp?page=administracao");
             rd.forward(request, response);
@@ -71,7 +71,11 @@ public class Controller extends HttpServlet {
             RequestDispatcher rd
                     = request.getRequestDispatcher("template.jsp?page=contato");
             rd.forward(request, response);
-        } else if (action.equals("servicos")) {
+        } else if (action.equals("cadastroUsuarios")) {
+            RequestDispatcher rd
+                    = request.getRequestDispatcher("template.jsp?page=cadastroUsuarios");
+            rd.forward(request, response);
+        }  else if (action.equals("servicos")) {
             RequestDispatcher rd
                     = request.getRequestDispatcher("template.jsp?page=servicos");
             rd.forward(request, response);
@@ -85,7 +89,7 @@ public class Controller extends HttpServlet {
             RequestDispatcher rd
                     = request.getRequestDispatcher("template.jsp?page=resultados");
             rd.forward(request, response);
-        } 
+        }
     }
 
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
