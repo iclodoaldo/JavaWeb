@@ -7,7 +7,8 @@ try {
     //out.print(u.getNome());
      
     
-                            %>                                 
+                            %>
+                             
                             <jsp:include page="administracao.jsp" />
                             <%
 }catch (Exception e){

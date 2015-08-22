@@ -105,6 +105,19 @@ public class Controller extends HttpServlet {
             RequestDispatcher rd
                     = request.getRequestDispatcher("template.jsp?page=resultados");
             rd.forward(request, response);
+        }else if (action.equals("logof")) {
+            Usuario u = new Usuario();
+            u.setNome(null);
+            u.setMatricula(null);
+            u.setLogin(null);
+            u.setCpf(null);
+            u.setSenha(null);
+            
+              request.getSession().invalidate();//removeAttribute("usuario");
+              response.sendRedirect("?");
+         //   RequestDispatcher rd
+          //          = request.getRequestDispatcher("template.jsp?action=home");
+           // rd.forward(request, response);
         }
     }
 

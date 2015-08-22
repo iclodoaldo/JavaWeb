@@ -1,3 +1,5 @@
+<jsp:include page="logof.jsp" />
+
 <div id="content">
         	<h2>Bem vindos ao site dos laboratórios CRM</h2>
             <h3>Histórico!</h3>

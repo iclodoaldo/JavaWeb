@@ -33,7 +33,7 @@ img {border: none;}
                 <li><a href="?action=servicos"><span>Servicos</span></a></li>
                 <li><a href="?action=login"><span>Administracao</span></a></li>
                 <li><a href="?action=contato"><span>Contato</span></a></li>
-                <li><a href="?action=cadastroUsuarios"><span>Cadastro de Usuarios</span></a></li>
+                
             </ul>
         </div>
                     
@@ -112,7 +112,7 @@ img {border: none;}
                     <li><a href="?action=servicos">Servicos</a></li>
                     <li><a href="?action=login">Administracao</a></li>
                     <li><a href="?action=contato">Contacto</a></li>
-                    <li><a href="?action=cadastro">Cadastro de Usuarios</a></li>
+                   
                 </ul>
             </div>
             <div id="copyright">

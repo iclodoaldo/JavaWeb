@@ -11,6 +11,7 @@
     </head>
     <body>
         <h1>Cadastro e alteração de Usuários do sistema</h1>
+        <h2><a href="?action=login">Voltar para Administração</a></h2>
         <form name="cadastroUsuarios" method="post" action="?action=cadastroUsuarios">
             <br><label>Matrícula: </label>
             <input type="text" name="matricula" value="" size="50" /><br><br>
