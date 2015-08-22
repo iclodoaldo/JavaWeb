@@ -1,3 +1,4 @@
+<%@page import="javax.swing.JOptionPane"%>
 <head>
 <title>Laboratorio Pos!</title>
 <link href="css/reset.css" rel="stylesheet" type="text/css" media="all" />
@@ -84,6 +85,8 @@ img {border: none;}
                                 String pagina = request.getParameter("page");
                                 if (pagina != null) {
                                     pagina = "pages/" + pagina + ".jsp";
+                                    
+                                    
                             %>                                 
                             <jsp:include page="<%= pagina%>" />
                             <%
@@ -109,7 +112,7 @@ img {border: none;}
                     <li><a href="?action=servicos">Servicos</a></li>
                     <li><a href="?action=login">Administracao</a></li>
                     <li><a href="?action=contato">Contacto</a></li>
-                    <li><a href="?action=cadastroUsuarios">Cadastro de Usuarios</a></li>
+                    <li><a href="?action=cadastro">Cadastro de Usuarios</a></li>
                 </ul>
             </div>
             <div id="copyright">

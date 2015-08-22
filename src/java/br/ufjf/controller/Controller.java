@@ -9,6 +9,7 @@ import br.ufjf.dao.UsuarioDAO;
 import br.ufjf.model.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.servlet.RequestDispatcher;
@@ -16,6 +17,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 /**
  *
@@ -34,8 +36,15 @@ public class Controller extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        
+        
+       // List list = UsuarioDAO.GetAllUsuarios();
         response.setContentType("text/html;charset=UTF-8");
         String action = request.getParameter("action");
+        
+        //String acao = request.getParameter("");
+       // UsuarioDAO dao = new UsuarioDAO();
 
         EntityManagerFactory emf
                 = Persistence.createEntityManagerFactory("LaboratorioPU");
@@ -72,10 +81,17 @@ public class Controller extends HttpServlet {
                     = request.getRequestDispatcher("template.jsp?page=contato");
             rd.forward(request, response);
         } else if (action.equals("cadastroUsuarios")) {
+            
+            String matricula = request.getParameter("matricula");
+            String nome = request.getParameter("nome");
+            String login = request.getParameter("login");
+            String senha = request.getParameter("senha");
+            String cpf = request.getParameter("cpf");
+           
             RequestDispatcher rd
                     = request.getRequestDispatcher("template.jsp?page=cadastroUsuarios");
             rd.forward(request, response);
-        }  else if (action.equals("servicos")) {
+        } else if (action.equals("servicos")) {
             RequestDispatcher rd
                     = request.getRequestDispatcher("template.jsp?page=servicos");
             rd.forward(request, response);
