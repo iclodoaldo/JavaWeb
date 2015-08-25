@@ -21,7 +21,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 /**
  *
  * @author clodoaldo
@@ -39,16 +38,13 @@ public class Controller extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
-        
-       // List list = UsuarioDAO.GetAllUsuarios();
+
+        // List list = UsuarioDAO.GetAllUsuarios();
         response.setContentType("text/html;charset=UTF-8");
         String action = request.getParameter("action");
-        
-        //String acao = request.getParameter("");
-       // UsuarioDAO dao = new UsuarioDAO();
 
+        //String acao = request.getParameter("");
+        // UsuarioDAO dao = new UsuarioDAO();
         EntityManagerFactory emf
                 = Persistence.createEntityManagerFactory("LaboratorioPU");
 
@@ -84,13 +80,13 @@ public class Controller extends HttpServlet {
                     = request.getRequestDispatcher("template.jsp?page=contato");
             rd.forward(request, response);
         } else if (action.equals("cadastroUsuarios")) {
-            
+
             String matricula = request.getParameter("matricula");
             String nome = request.getParameter("nome");
             String login = request.getParameter("login");
             String senha = request.getParameter("senha");
             String cpf = request.getParameter("cpf");
-           
+
             RequestDispatcher rd
                     = request.getRequestDispatcher("template.jsp?page=cadastroUsuarios");
             rd.forward(request, response);
@@ -107,22 +103,23 @@ public class Controller extends HttpServlet {
             String senha = request.getParameter("senha");
             RequestDispatcher rd = request.getRequestDispatcher("template.jsp?page=resultados");
             rd.forward(request, response);
-            List listaExames = new ExamesDAO(emf).retornaExmesPorCliente(codigoCliente);
-             request.setAttribute("listaExamesPorCliente", listaExames);
-            
-        }else if (action.equals("logof")) {
+            int codCli = Integer.parseInt(request.getParameter("codigoCli"));
+            List listaExames = new ExamesDAO(emf).retornaExmesPorCliente(codCli);
+            request.setAttribute("listaExamesPorCliente", listaExames);
+
+        } else if (action.equals("logof")) {
             Usuario u = new Usuario();
             u.setNome(null);
             u.setMatricula(null);
             u.setLogin(null);
             u.setCpf(null);
             u.setSenha(null);
-            
-              request.getSession().invalidate();//removeAttribute("usuario");
-              response.sendRedirect("?");
+
+            request.getSession().invalidate();//removeAttribute("usuario");
+            response.sendRedirect("?");
          //   RequestDispatcher rd
-          //          = request.getRequestDispatcher("template.jsp?action=home");
-           // rd.forward(request, response);
+            //          = request.getRequestDispatcher("template.jsp?action=home");
+            // rd.forward(request, response);
         }
     }
 

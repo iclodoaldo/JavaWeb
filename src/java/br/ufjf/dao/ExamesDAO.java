@@ -40,7 +40,7 @@ public class ExamesDAO {
     
    // }
 
-    public List retornaExmesPorCliente(SingularAttribute<Exames, Integer> codigoCliente) {
+    public List retornaExmesPorCliente(int codigoCliente) {
         String vHql = "select exames.codigoExame, tipoexame.nomeExame, exames.dataExame, exames.dataEntrega "
                 + "FROM exames INNER JOIN tipoexame ON  exames.codigoExame = tipoexame.codigoTipo";  
         
