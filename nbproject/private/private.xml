@@ -3,13 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ranier.lopes/Documents/NetBeansProjects/Desenvolvimento%20Ranier/JavaWeb/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/ranier.lopes/Documents/NetBeansProjects/Desenvolvimento%20Ranier/JavaWeb/src/java/teste.java</file>
-            <file>file:/C:/Users/ranier.lopes/Documents/NetBeansProjects/Desenvolvimento%20Ranier/JavaWeb/src/java/br/ufjf/model/Usuario.java</file>
-            <file>file:/C:/Users/ranier.lopes/Documents/NetBeansProjects/Desenvolvimento%20Ranier/JavaWeb/src/java/br/ufjf/dao/UsuarioDAO.java</file>
-            <file>file:/C:/Users/ranier.lopes/Documents/NetBeansProjects/Desenvolvimento%20Ranier/JavaWeb/src/conf/persistence.xml</file>
-            <file>file:/C:/Users/ranier.lopes/Documents/NetBeansProjects/Desenvolvimento%20Ranier/JavaWeb/src/java/br/ufjf/controller/Controller.java</file>
-            <file>file:/C:/Users/ranier.lopes/Documents/NetBeansProjects/Desenvolvimento%20Ranier/JavaWeb/web/Erros</file>
+            <file>file:/C:/Users/Marcelo/Documents/GitHub/JavaWeb/web/pages/servicos.jsp</file>
+            <file>file:/C:/Users/Marcelo/Documents/GitHub/JavaWeb/web/pages/administracao.jsp</file>
+            <file>file:/C:/Users/Marcelo/Documents/GitHub/JavaWeb/web/template.jsp</file>
+            <file>file:/C:/Users/Marcelo/Documents/GitHub/JavaWeb/web/pages/contato.jsp</file>
+            <file>file:/C:/Users/Marcelo/Documents/GitHub/JavaWeb/web/pages/home.jsp</file>
+            <file>file:/C:/Users/Marcelo/Documents/GitHub/JavaWeb/web/pages/portfolio.jsp</file>
+            <file>file:/C:/Users/Marcelo/Documents/GitHub/JavaWeb/src/java/br/ufjf/controller/Controller.java</file>
+            <file>file:/C:/Users/Marcelo/Documents/GitHub/JavaWeb/src/conf/persistence.xml</file>
+            <file>file:/C:/Users/Marcelo/Documents/GitHub/JavaWeb/web/pages/cadastroUsuarios.jsp</file>
         </group>
     </open-files>
 </project-private>

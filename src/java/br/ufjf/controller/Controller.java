@@ -5,7 +5,10 @@
  */
 package br.ufjf.controller;
 
+import br.ufjf.dao.ExamesDAO;
 import br.ufjf.dao.UsuarioDAO;
+import br.ufjf.model.Exames;
+import static br.ufjf.model.Exames_.codigoCliente;
 import br.ufjf.model.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -102,9 +105,9 @@ public class Controller extends HttpServlet {
         } else if (action.equals("resultados")) {
             String login = request.getParameter("login");
             String senha = request.getParameter("senha");
-            RequestDispatcher rd
-                    = request.getRequestDispatcher("template.jsp?page=resultados");
+            RequestDispatcher rd = request.getRequestDispatcher("template.jsp?page=resultados");
             rd.forward(request, response);
+            
         }else if (action.equals("logof")) {
             Usuario u = new Usuario();
             u.setNome(null);
