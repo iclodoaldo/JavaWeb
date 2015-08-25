@@ -107,6 +107,8 @@ public class Controller extends HttpServlet {
             String senha = request.getParameter("senha");
             RequestDispatcher rd = request.getRequestDispatcher("template.jsp?page=resultados");
             rd.forward(request, response);
+            List listaExames = new ExamesDAO(emf).retornaExmesPorCliente(codigoCliente);
+             request.setAttribute("listaExamesPorCliente", listaExames);
             
         }else if (action.equals("logof")) {
             Usuario u = new Usuario();

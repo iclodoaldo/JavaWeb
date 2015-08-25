@@ -11,6 +11,8 @@ import javax.persistence.NonUniqueResultException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.persistence.metamodel.SingularAttribute;
+import jdk.nashorn.internal.ir.RuntimeNode;
+import org.omg.PortableServer.REQUEST_PROCESSING_POLICY_ID;
 
 public class ExamesDAO { 
 
@@ -31,24 +33,21 @@ public class ExamesDAO {
         return emf.createEntityManager();
     }
 
-    public Exames getExamesPorCodigoCliente(int codigoCliente){
-        Query c = getEntityManager().createNamedQuery("Exames.findByCodigoCliente");
-        c.setParameter("codigoCliente", codigoCliente);
-        
-        try{
-            return (Exames) c.getSingleResult();
-        }catch (NoResultException e){
-            return null;
-        }catch (NonUniqueResultException e){
-            List<Exames> lista =c.getResultList();
-            return lista.get(0);
-        }
-    }  
+   
     //public static List<Exames> retornaExames(int codigoCli){
         
      //return    
     
    // }
 
+    public List retornaExmesPorCliente(SingularAttribute<Exames, Integer> codigoCliente) {
+        String vHql = "select exames.codigoExame, tipoexame.nomeExame, exames.dataExame, exames.dataEntrega "
+                + "FROM exames INNER JOIN tipoexame ON  exames.codigoExame = tipoexame.codigoTipo";  
+        
+        Query q = getEntityManager().createQuery(vHql);
+        
+        return q.getResultList();
+    }
+   
    
 }

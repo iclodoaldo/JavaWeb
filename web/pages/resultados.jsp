@@ -28,6 +28,40 @@
                 try{
                 Cliente eu = x.getClientePorLoginESenha(request.getParameter("codigoCli"), request.getParameter("senhaCli"));
                 out.println("<h1><font color=blue >Bem vindo Sr(a): "+eu.getNome()+"</font><br></h1>");
+                
+                %>
+                <table style="width: 100%;">
+                    <tr style="background-color: graytext;font-weight: bolder;
+                        color: white">
+                        <td>Codígo</td>
+                        <td>Exame</td>
+                        <td>Feito dia</td>
+                        <td>Prazo de entrega</td>
+                        <td>resultado</td>
+                    </tr>
+                    <c:if test="${listaExamesPorCliente.size() == 0}">
+                        <tr><td colspan="4"> Não há exames cadastrados</td></tr>
+                    </c:if>
+                    <c:if test="${listaExamesPorCliente.size() != 0}">
+                        <c:forEach items="${listaExamesPorCliente}" var="n">
+                            <tr>
+                                <td>${n.codigoExame}</td>
+                                <td>${n.nomeExame}</td>
+                                <td>${n.dataExame}</td>
+                                <td>${n.prazoExame}</td>
+                                <td>
+                                    <a href="control?action=">
+                                        Resultado
+
+                                    </a>
+                                </td>
+                                
+                            </tr>
+                        </c:forEach>
+                    </c:if>
+
+                </table>
+                <%
                 }catch (Exception e){
                     out.print("Codigo de acesso ou senha incorretos... ");
                 }
@@ -38,6 +72,8 @@
          
          %>
          <br>
+         
+         
         <font color="red">
         <h1>EXIBIR AQUI OS RESULTADOS DOS EXAMES FEITOS PELOS CLIENTES!</h1>
         <h1>EXIBIR UMA LISTA PARA O CLIENTE SELECIONAR OS EXAMES QUE QUER IMPRIMIR!</h1>
