@@ -27,7 +27,22 @@ public class ExamesDAO {
     }
    
     
-    public static List<Exame> retornaExames(Integer codigoCliente){
+        public static List<Exame> retornaTodosExames(){
+         EntityManager em = getEM();
+
+        Query e = em.createNamedQuery("Exame.findAll");
+             
+        
+        try{
+            List<Exame> lista =e.getResultList();
+            return lista; 
+        }catch (NoResultException ex){
+            return null;
+        }
+        
+        }
+
+        public static List<Exame> retornaExames(Integer codigoCliente){
          EntityManager em = getEM();
 
         Query e = em.createNamedQuery("Exame.findByCodigoCliente");
@@ -77,6 +92,22 @@ public class ExamesDAO {
             List<Exame> lista =e.getResultList();
             return lista.get(0);
         }    
+    
+    }
+    
+    public static void somaTotal(){
+    JOptionPane.showMessageDialog(null, "lista.get(0)");
+            EntityManager conexao =  BancoDados.retornaBanco().createEntityManager();
+            
+            JOptionPane.showMessageDialog(null, "lista.get(0)");
+            List<Exame>lista = ExamesDAO.retornaTodosExames();
+                JOptionPane.showMessageDialog(null, lista.get(0));
+            
+            for(int i=0;i==lista.size();i++){
+                JOptionPane.showMessageDialog(null, lista.get(i));
+            
+            }
+    
     
     }
     

@@ -1,4 +1,3 @@
-<%@page import="br.ufjf.dao.EnderecoDAO"%>
 <%@page import="br.ufjf.dao.ClienteDAO"%>
 <%@page import="br.ufjf.model.Cliente"%>
 <%@page import="org.apache.catalina.User"%>
@@ -27,16 +26,15 @@
                 try {
                     Cliente cliente = new Cliente();
                     ClienteDAO dao = new ClienteDAO();
-                   
+
+                    String codigo = request.getParameter("codigo");
+
                     cliente.setCodigo(Integer.parseInt(request.getParameter("codigo")));
-                   
+
                     dao.removerCliente(Integer.parseInt(request.getParameter("codigo")));
-                   
-                    //out.print("removeu" + cliente.getNome());
+                    out.print("removeu" + cliente.getNome());
 
                 } catch (Exception e) {
-                    
-                    out.print("Cliente não removido");
 
                 }
 

@@ -81,10 +81,10 @@ public class EnderecoDAO {
     }
     
     //Delete endereco... 
-    public void removerendereco(int idEndereco) {
+    public void removerendereco(String logradouro) {
 
         EntityManager em = getEntityManager();
-        Endereco endereco = em.find(Endereco.class,idEndereco );
+        Endereco endereco = em.find(Endereco.class, logradouro);
         
         try {
             em.getTransaction().begin();
