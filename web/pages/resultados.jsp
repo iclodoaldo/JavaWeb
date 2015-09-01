@@ -1,3 +1,4 @@
+
 <%-- 
     Document   : administracao
     Created on : 01/06/2015, 11:34:43
@@ -54,11 +55,13 @@
         
         String resultado="<div><table width='300px' class='borda1'><tr><td><b>Tipo de Exame</b></td><td><b>Data do Exame</b></td></tr>";
         List<Exame> lista = ex.retornaExames(eu.getCodigo());
-        
+        Double soma=0.0;
          for (Exame exame: lista){
          resultado += "<tr><td>"+"<a href='?action=resultadoDetalhe&codigoExame="+exame.getCodigo()+"'>"+exame.getCodigoTipo().getNomeExame()
                  +"</a><td>"+exame.getDataExame()+"</td><tr>";
+         soma+=exame.getCodigoTipo().getCusto();
          }
+         resultado += "<tr><td>Custo para o Cliente</td><td>R$ "+soma+"</td><tr>";
          resultado+="</table></div>";
          out.print(resultado);
         //JOptionPane.showMessageDialog(null, resultado);

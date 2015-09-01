@@ -1,3 +1,4 @@
+
 <%-- 
     Document   : administracao
     Created on : 01/06/2015, 11:34:43
@@ -29,6 +30,7 @@
         <h2> <a href="?action=cadastroClientes"> <font color="green">Cadastro de Clientes.</font></h2>
         <h2> <a href="?action=cadastroExame"> <font color="blue">Cadastro de Exames.</font></h2>
         <h2> <a href="?action=cadastroTipoExame"> <font color="orange">Cadastro de Tipos de Exames.</font></h2>
+        <h2> <a href="?action=contabilidade"> <font color="red">Contabilidade.</font></h2>
        
         <br><br><br><br><br><br><br><br><br>
         
