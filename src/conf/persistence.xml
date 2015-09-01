@@ -5,7 +5,6 @@
     <class>br.ufjf.model.Cliente</class>
     <class>br.ufjf.model.Usuario</class>
     <class>br.ufjf.model.TipoExame</class>
-    <class>br.ufjf.model.Exames</class>
     <class>br.ufjf.dao.ClienteDAO</class>
     <class>br.ufjf.dao.TipoExameDAO</class>
     <class>br.ufjf.dao.ExamesDAO</class>
