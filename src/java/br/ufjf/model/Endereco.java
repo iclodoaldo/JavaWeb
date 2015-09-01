@@ -11,6 +11,8 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -34,13 +36,15 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Endereco.findByBairro", query = "SELECT e FROM Endereco e WHERE e.bairro = :bairro"),
     @NamedQuery(name = "Endereco.findByCep", query = "SELECT e FROM Endereco e WHERE e.cep = :cep"),
     @NamedQuery(name = "Endereco.findByCidade", query = "SELECT e FROM Endereco e WHERE e.cidade = :cidade"),
-    @NamedQuery(name = "Endereco.findUltimoEnd", query = "select e from Endereco e order by e.idEndereco desc" ),
+    @NamedQuery(name = "Endereco.findUltimoEnd", query = "select e from Endereco e order by e.idEndereco desc"),
     @NamedQuery(name = "Endereco.findByUf", query = "SELECT e FROM Endereco e WHERE e.uf = :uf")})
 public class Endereco implements Serializable {
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "endereco")
     private Collection<Cliente> clienteCollection;
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idEndereco")
     private Integer idEndereco;
@@ -153,5 +157,5 @@ public class Endereco implements Serializable {
     public void setClienteCollection(Collection<Cliente> clienteCollection) {
         this.clienteCollection = clienteCollection;
     }
-    
+
 }
