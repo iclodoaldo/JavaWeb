@@ -27,8 +27,11 @@
                 try {
                     Cliente cliente = new Cliente();
                     ClienteDAO dao = new ClienteDAO();
+                   
                     cliente.setCodigo(Integer.parseInt(request.getParameter("codigo")));
+                   
                     dao.removerCliente(Integer.parseInt(request.getParameter("codigo")));
+                   
                     //out.print("removeu" + cliente.getNome());
 
                 } catch (Exception e) {
