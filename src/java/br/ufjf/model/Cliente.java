@@ -6,7 +6,9 @@
 package br.ufjf.model;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,8 +18,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -34,10 +38,12 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Cliente.findBySexo", query = "SELECT c FROM Cliente c WHERE c.sexo = :sexo"),
     @NamedQuery(name = "Cliente.findByTelefone", query = "SELECT c FROM Cliente c WHERE c.telefone = :telefone"),
     @NamedQuery(name = "Cliente.findByEmail", query = "SELECT c FROM Cliente c WHERE c.email = :email"),
-    @NamedQuery(name = "Cliente.findByLogin", query = "SELECT c FROM Cliente c WHERE c.login = :login"),
     @NamedQuery(name = "Cliente.findBySenha", query = "SELECT c FROM Cliente c WHERE c.senha = :senha"),
-    @NamedQuery (name="Cliente.findExistsCliente", query= "SELECT c FROM Cliente c WHERE c.login = :login AND c.senha = :senha")})
+    @NamedQuery (name="Cliente.findExistsCliente", query= "SELECT c FROM Cliente c WHERE c.cpf = :cpf AND c.senha = :senha")
+})
 public class Cliente implements Serializable {
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoCliente")
+    private Collection<Exame> exameCollection;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,8 +60,6 @@ public class Cliente implements Serializable {
     private String telefone;
     @Column(name = "email")
     private String email;
-    @Column(name = "login")
-    private String login;
     @Column(name = "senha")
     private String senha;
     @JoinColumn(name = "endereco", referencedColumnName = "idEndereco")
@@ -117,14 +121,7 @@ public class Cliente implements Serializable {
         this.email = email;
     }
 
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
+  
     public String getSenha() {
         return senha;
     }
@@ -164,6 +161,15 @@ public class Cliente implements Serializable {
     @Override
     public String toString() {
         return "br.ufjf.model.Cliente[ codigo=" + codigo + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Exame> getExameCollection() {
+        return exameCollection;
+    }
+
+    public void setExameCollection(Collection<Exame> exameCollection) {
+        this.exameCollection = exameCollection;
     }
     
 }

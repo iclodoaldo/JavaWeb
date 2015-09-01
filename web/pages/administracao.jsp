@@ -24,14 +24,12 @@
           <h1>Bem Vindo <font color="blue" ><b><%= u.getNome() %>! </b><a href="?action=logof"><b>Sair!</b></a></font></h1>
        <%}%>
         <br>
-        <h1>Aqui nossa pagina de administrador</h1>
-        <h1>INSIRA AQUI OS LINKS DAS DIVERSAR FUNCOES POSSIVEIS!</h1>
-        <br><br>
+        <br>
         <h2> <a href="?action=cadastroUsuarios"> <font color="red">Cadastro de Usuarios.</font></h2>
-        <h2>Usuarios! - <font color="red">(Exibir, Alterar e Excluir).</font></h2>
-        <h2>Clientes! - <font color="red">(Inserir, Exibir, Alterar e Excluir).</font></h2>
-        <h2>Tipos de Exames! - <font color="red">(Inserir, Exibir, Alterar e Excluir).</font></h2>
-        <h2>Exames Realizados! - <font color="red">(Inserir, Exibir, Alterar e Excluir).</font></h2>
+        <h2> <a href="?action=cadastroClientes"> <font color="green">Cadastro de Clientes.</font></h2>
+        <h2> <a href="?action=cadastroExame"> <font color="blue">Cadastro de Exames.</font></h2>
+        <h2> <a href="?action=cadastroTipoExame"> <font color="orange">Cadastro de Tipos de Exames.</font></h2>
+       
         <br><br><br><br><br><br><br><br><br>
         
         

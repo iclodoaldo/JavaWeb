@@ -4,8 +4,8 @@
     Author     : clodoaldo
 --%>
 
-<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
+<%@page import="br.ufjf.model.Exame"%>
 <%@page import="br.ufjf.dao.ExamesDAO"%>
 <%@page import="javax.swing.JOptionPane"%>
 <%@page import="br.ufjf.dao.BancoDados"%>
@@ -20,68 +20,59 @@
         <title>Laboratorio de Pos!</title>
     </head>
     <body>
-        <h1>Bem Vindo Visitante!</h1>
-        <br>
-        <h1>Aqui nossa pagina de Resultados</h1>
-        <br>
+        
         <%
-            if (!request.getParameter("codigoCli").isEmpty() && !request.getParameter("senhaCli").isEmpty()) {
-                ClienteDAO x = new ClienteDAO(BancoDados.retornaBanco());
-                ArrayList listaPorCliente = new ArrayList ();
-                try {
-                    Cliente eu = x.getClientePorLoginESenha(request.getParameter("codigoCli"), request.getParameter("senhaCli"));
-                    out.println("<h1><font color=blue >Bem vindo Sr(a): " + eu.getNome() + "</font><br></h1>");
-                    
-                    listaPorCliente = (ArrayList) request.getAttribute("listaExamesPorCliente");
-        %>
-        <table style="width: 100%;">
-            <tr style="background-color: graytext;font-weight: bolder;
-                color: white">
-                <td>Codígo</td>
-                <td>Exame</td>
-                <td>Feito dia</td>
-                <td>Prazo de entrega</td>
-                <td>resultado</td>
-            </tr>
-            <c:if test="${listaPorCliente.size() == 0}">
-                <tr><td colspan="4"> Não há exames cadastrados</td></tr>
-            </c:if>
-            <c:if test="${listaPorCliente.size() != 0}">
-                <c:forEach items="${listaPorCliente}" var="n">
-                    <tr>
-                        <td>${n.codigoExame}</td>
-                        <td>${n.nomeExame}</td>
-                        <td>${n.dataExame}</td>
-                        <td>${n.prazoExame}</td>
-                        <td>
-                            <a href="control?action=">
-                                Resultado
-
-                            </a>
-                        </td>
-
-                    </tr>
-                </c:forEach>
-            </c:if>
-
-        </table>
-        <%                        } catch (Exception e) {
-                    out.print("Codigo de acesso ou senha incorretos... ");
-                }
-            }
-
-
+        if(!request.getParameter("codigoCli").isEmpty()){
+        out.print("<h1>Aqui nossa pagina de Resultados</h1>");}else{out.print(
+                "<h1>Bem Vindo Visitante!</h1>"
+              + "<h1>Aqui nossa pagina de Resultados</h1>"
+              + "<h1>Para ver sues Resultados siga os passos abaixo:</h1>"
+              + "<h1>Clique no Campo de Resultado Online ao lado com seu CPF e Codigo de Acesso!</h1>");}
+        
         %>
         <br>
-
-
-        <font color="red">
-        <h1>EXIBIR AQUI OS RESULTADOS DOS EXAMES FEITOS PELOS CLIENTES!</h1>
-        <h1>EXIBIR UMA LISTA PARA O CLIENTE SELECIONAR OS EXAMES QUE QUER IMPRIMIR!</h1>
-        <h1>EXIBIR APENAS SE CLIENTE E SENHA EXISTIREM NO BANCO DE DADOS DE EXAMES REALIZADOS
-            CASO CONTRARIO EXIBIR MENSAGEM DE INFORMACAO AO CLIENTE!</h1>
-        </font>
-        <br><br><br><br><br><br><br><br><br>
-
+        
+        <br>
+        <% 
+            if(!request.getParameter("codigoCli").isEmpty() && !request.getParameter("senhaCli").isEmpty()){
+                ClienteDAO x = new ClienteDAO(BancoDados.retornaBanco());
+                Boolean logado=false;
+                Cliente eu=new Cliente();
+                
+                try{
+                eu = x.getClientePorLoginESenha(request.getParameter("codigoCli"), request.getParameter("senhaCli"));
+                out.println("<h1><font color=blue >Bem vindo Sr(a): "+eu.getNome()+"</font><br></h1>");
+                    logado=true;
+                }catch (Exception e){
+                    out.print("Codigo de acesso ou senha incorretos... ");
+                    logado=false;
+                }
+                
+                
+                if (logado==true){
+                ExamesDAO ex = new ExamesDAO();
+        
+        String resultado="<div><table width='300px' class='borda1'><tr><td><b>Tipo de Exame</b></td><td><b>Data do Exame</b></td></tr>";
+        List<Exame> lista = ex.retornaExames(eu.getCodigo());
+        
+         for (Exame exame: lista){
+         resultado += "<tr><td>"+"<a href='?action=resultadoDetalhe&codigoExame="+exame.getCodigo()+"'>"+exame.getCodigoTipo().getNomeExame()
+                 +"</a><td>"+exame.getDataExame()+"</td><tr>";
+         }
+         resultado+="</table></div>";
+         out.print(resultado);
+        //JOptionPane.showMessageDialog(null, resultado);
+        
+        
+                
+                
+                }
+                            }        
+                
+        
+         
+         
+         %>
+        
     </body>
 </html>

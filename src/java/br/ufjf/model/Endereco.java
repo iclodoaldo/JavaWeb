@@ -34,8 +34,11 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Endereco.findByBairro", query = "SELECT e FROM Endereco e WHERE e.bairro = :bairro"),
     @NamedQuery(name = "Endereco.findByCep", query = "SELECT e FROM Endereco e WHERE e.cep = :cep"),
     @NamedQuery(name = "Endereco.findByCidade", query = "SELECT e FROM Endereco e WHERE e.cidade = :cidade"),
+    @NamedQuery(name = "Endereco.findUltimoEnd", query = "select e from Endereco e order by e.idEndereco desc" ),
     @NamedQuery(name = "Endereco.findByUf", query = "SELECT e FROM Endereco e WHERE e.uf = :uf")})
 public class Endereco implements Serializable {
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "endereco")
+    private Collection<Cliente> clienteCollection;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -53,8 +56,6 @@ public class Endereco implements Serializable {
     private String cidade;
     @Column(name = "UF")
     private String uf;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "endereco")
-    private Collection<Cliente> clienteCollection;
 
     public Endereco() {
     }
@@ -119,15 +120,6 @@ public class Endereco implements Serializable {
         this.uf = uf;
     }
 
-    @XmlTransient
-    public Collection<Cliente> getClienteCollection() {
-        return clienteCollection;
-    }
-
-    public void setClienteCollection(Collection<Cliente> clienteCollection) {
-        this.clienteCollection = clienteCollection;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -151,6 +143,15 @@ public class Endereco implements Serializable {
     @Override
     public String toString() {
         return "br.ufjf.model.Endereco[ idEndereco=" + idEndereco + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Cliente> getClienteCollection() {
+        return clienteCollection;
+    }
+
+    public void setClienteCollection(Collection<Cliente> clienteCollection) {
+        this.clienteCollection = clienteCollection;
     }
     
 }

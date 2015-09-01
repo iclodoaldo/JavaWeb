@@ -21,23 +21,19 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author clodoaldo
  */
-//@Entity
-//@Table(name = "usuario")
+@Entity
+@Table(name = "usuario")
 @XmlRootElement
 @NamedQueries({
-    //@NamedQuery(name = "Usuario.getAll", query = "SELECT u FROM Usuario u"),
+    @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u"),
     @NamedQuery(name = "Usuario.findByMatricula", query = "SELECT u FROM Usuario u WHERE u.matricula = :matricula"),
     @NamedQuery(name = "Usuario.findByNome", query = "SELECT u FROM Usuario u WHERE u.nome = :nome"),
     @NamedQuery(name = "Usuario.findByLogin", query = "SELECT u FROM Usuario u WHERE u.login = :login"),
     @NamedQuery(name = "Usuario.findBySenha", query = "SELECT u FROM Usuario u WHERE u.senha = :senha"),
     @NamedQuery(name = "Usuario.findByCpf", query = "SELECT u FROM Usuario u WHERE u.cpf = :cpf"),
-    @NamedQuery(name = "Usuario.findExistsUser", query = "SELECT u FROM Usuario u WHERE u.login = :login AND u.senha = :senha")
+    @NamedQuery (name="Usuario.findExistsUser", query= "SELECT u FROM Usuario u WHERE u.login = :login AND u.senha = :senha")
 })
-@Entity
-@Table
-@NamedQuery(name = "Usuario.getAll", query = "SELECT u FROM Usuario u")
 public class Usuario implements Serializable {
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -124,5 +120,5 @@ public class Usuario implements Serializable {
     public String toString() {
         return "br.ufjf.model.Usuario[ matricula=" + matricula + " ]";
     }
-
+    
 }

@@ -2,6 +2,12 @@ body {
 	text-align: center;
 }
 
+table.borda1{
+    border-width: 1px;
+    border-collapse: collapse;
+    
+}
+
 #mainwrap {
 	width: 880px;
 	margin: 0 auto;

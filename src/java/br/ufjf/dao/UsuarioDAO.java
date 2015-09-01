@@ -11,13 +11,17 @@ import javax.persistence.Query;
 
 public class UsuarioDAO {
 
+    String comparalogin;
+    
     public EntityManager getEM() {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("LaboratorioPU");
         return factory.createEntityManager();
     }
 
-    //Create e insert junto....
+    //Create e alteração junto....
     public Usuario salvar(Usuario usuario) {
+        
+        UsuarioDAO dao = new UsuarioDAO();
 
         EntityManager em = getEM();
 
@@ -25,10 +29,10 @@ public class UsuarioDAO {
 
         if (usuario.getLogin() == null) {//verifica existe...
 
-            em.persist(usuario); // executa insert
+            em.persist(usuario); // executa insert se não existir
 
         } else {
-            usuario = em.merge(usuario); //executa update
+            usuario = em.merge(usuario); //executa update se existir e faz o merge...
 
         }
         em.getTransaction().commit();
@@ -36,27 +40,35 @@ public class UsuarioDAO {
 
         return usuario;
     }
-    
+
     //Delete Usuario... 
-    public void removerUsuario(String login) {
+    public void removerUsuario(Usuario matricula) {
 
         EntityManager em = getEM();
-        Usuario usuario = em.find(Usuario.class, login);
         
+        Usuario usuario = em.find(Usuario.class, matricula);
+
         try {
             em.getTransaction().begin();
-            em.remove(usuario);
+
+            if (usuario.getMatricula().equals(matricula)) {
+                em.remove(usuario);
+            }
+            
             em.getTransaction().commit();
+            
         } finally {
             em.close();
         }
     }
+
     //Procura usuario por login...
+
     public Usuario consultaUsuarioporlogin(String login) {
 
         EntityManager em = getEM();
         Usuario u = null;
-        
+
         try {
             u = em.find(Usuario.class, login); // executa select
         } finally {
@@ -64,7 +76,6 @@ public class UsuarioDAO {
         }
         return u;
     }
-
 
     public Usuario getUsuarioByLoginAndPassword(String login, String senha) {
         Query q = getEM()
