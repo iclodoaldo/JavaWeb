@@ -67,7 +67,7 @@ public class teste {
                
                 dao.salvarExame(exame2);
                 
-          
+           */
         
                     Cliente cliente = new Cliente();
                     ClienteDAO dao = new ClienteDAO();
@@ -97,10 +97,10 @@ public class teste {
                     cliente.setEndereco(endSalvo);
                     JOptionPane.showMessageDialog(null, endSalvo.getIdEndereco());
                     
-                    dao.salvarCliente(cliente); */
+                    dao.salvarCliente(cliente);
  
         
-        ExamesDAO.somaTotal();
+        
             
     }
 
