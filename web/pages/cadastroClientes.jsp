@@ -45,9 +45,11 @@
             <input type="password" name="senha" value="" size="30" /><br><br>
             * campos obrigatórios<br><br>
             <input type="submit" value="ENVIAR" name="enviar" />
-            <input type="submit" value="CANCELAR" name="carcelar" /> <br><br>
+            <input type="submit" value="CANCELAR" name="carcelar" /> <br><br><br>
 
         </form>
+        
+        <h4><a href="?action=excluirCliente">Para EXCLUIR um cliente CLIQUE AQUI</a></h4><br><br>
         <%
             String nome = request.getParameter("nome");
 
