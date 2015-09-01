@@ -179,6 +179,11 @@ public class Controller extends HttpServlet {
          //   RequestDispatcher rd
           //          = request.getRequestDispatcher("template.jsp?action=home");
            // rd.forward(request, response);
+        }else if (action.equals("contabilidade")) {
+            
+            RequestDispatcher rd
+                    = request.getRequestDispatcher("template.jsp?page=contabilidade");
+            rd.forward(request, response);
         }
     }
 
