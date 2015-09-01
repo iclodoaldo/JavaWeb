@@ -1,6 +1,7 @@
 
 package br.ufjf.dao;
 
+import static br.ufjf.dao.ExamesDAO.getEM;
 import br.ufjf.model.Cliente;
 import br.ufjf.model.Endereco;
 import java.util.List;
@@ -95,10 +96,11 @@ public class ClienteDAO{
     }
     
     //Delete Usuario... 
-    public void removerCliente(String cpf) {
+     public void removerCliente(int codigo) {
 
         EntityManager em = getEntityManager();
-        Cliente cliente = em.find(Cliente.class, cpf);
+        Cliente cliente = em.find(Cliente.class, codigo);
+        
         
         try {
             em.getTransaction().begin();

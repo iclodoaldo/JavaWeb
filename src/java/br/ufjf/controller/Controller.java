@@ -114,6 +114,14 @@ public class Controller extends HttpServlet {
             RequestDispatcher rd
                     = request.getRequestDispatcher("template.jsp?page=cadastroClientes");
             rd.forward(request, response);
+        }else if (action.equals("excluirCliente")) {
+            
+            String codigo = request.getParameter("codigo");
+            
+            RequestDispatcher rd
+                    = request.getRequestDispatcher("template.jsp?page=excluirCliente");
+            rd.forward(request, response);
+            
         }else if (action.equals("cadastroTipoExame")) {
 
             String codigoTipo = request.getParameter("codigoTipo");
