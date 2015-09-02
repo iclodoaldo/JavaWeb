@@ -11,7 +11,7 @@
     </head>
     <body>
         <h1>Exclusão de Usuários do sistema</h1>
-        <h2><a href="?action=login">Voltar para Administração</a></h2>
+        <%--<h2><a href="?action=login">Voltar para Administração</a></h2>--%>
         <form name="excluirUsuario" method="post" action="?action=excluirUsuario">
 
 

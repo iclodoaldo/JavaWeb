@@ -15,7 +15,7 @@
     <body>
 
         <h1>Cadastro e alteração de Clientes</h1>
-        <h2><a href="?action=login">Voltar para ADMINISTRAÇÃO</a></h2>
+        <%--<h2><a href="?action=login">Voltar para ADMINISTRAÇÃO</a></h2>--%>
 
         <form name="cadastroClientes" method="post" action="?action=cadastroClientes">
 

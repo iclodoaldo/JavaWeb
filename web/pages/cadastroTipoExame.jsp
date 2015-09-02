@@ -8,7 +8,7 @@
     <body>
         
         <h1>Cadastro de Tipo de Exame</h1>
-        <h2><a href="?action=login">Voltar para Administração</a></h2>
+        <%--<h2><a href="?action=login">Voltar para Administração</a></h2>--%>
         <form name="cadastroTipoExame" method="post" action="?action=cadastroTipoExame">
             <br><label>Código Tipo: </label>
             <input type="text" name="codigoTipo" value="" size="10" /><br><br>

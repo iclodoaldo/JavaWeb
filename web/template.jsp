@@ -1,3 +1,5 @@
+<%@page import="br.ufjf.model.Usuario"%>
+<%@page import="br.ufjf.controller.Controller"%>
 <%@page import="javax.swing.JOptionPane"%>
 <head>
 <title>Laboratorio Pos!</title>
@@ -83,10 +85,53 @@ img {border: none;}
         <%
             
                                 String pagina = request.getParameter("page");
-                                if (pagina != null) {
+                                String logarObrigatorio="administracao, alteraClientes,"
+                                                     + " alteraUsuario, cadastroClientes"
+                                                     + " cadastroExame, cadastroTipoExame"
+                                                     + " cadastroUsuarios, contabilidade"
+                                                     + " excluirCliente, excluirUsuario";
+                                
+                                if(logarObrigatorio.contains(pagina)){
+                                    if (pagina != null) {
                                     pagina = "pages/" + pagina + ".jsp";
                                     
+                                    try {
+                                Usuario u = (Usuario)session.getAttribute("usuario");
+                                %>
+                                <h1>Bem Vindo <font color="blue" ><b><%= u.getNome() %>!</b></font>
+                                    <a href="?action=logof"><b>Sair!</b></a>
+                                    <a href="?action=login">&nbsp;&nbsp;&nbsp;&nbsp;Menu Adm!</a></h1>
+                                <jsp:include page="<%= pagina%>" />
+                                
+                                <%
+                                }catch (Exception e){
                                     
+                                    response.sendRedirect("?");
+                                }
+                                    }else{//
+                                    pagina = (String) request.getAttribute("page");
+                                    if (pagina != null) {
+                                        pagina = "pages/" + pagina + ".jsp";
+                                        try {
+                                Usuario u = (Usuario)session.getAttribute("usuario");
+                                %>
+                                <h1>Bem Vindo <font color="blue" ><b><%= u.getNome() %>! </b><a href="?action=logof"><b>Sair!</b></a></font></h1>
+                                <jsp:include page="<%= pagina%>" />
+                                
+                                <%
+                                }catch (Exception e){
+                                    
+                                    response.sendRedirect("?");
+                                }
+                                    }
+                                    }
+                                    
+                                }else{
+                                
+                                /////////////////////////////////////
+                                if (pagina != null) {
+                                    pagina = "pages/" + pagina + ".jsp";
+                                  
                             %>                                 
                             <jsp:include page="<%= pagina%>" />
                             <%
@@ -94,15 +139,18 @@ img {border: none;}
                                 pagina = (String) request.getAttribute("page");
                                 if (pagina != null) {
                                     pagina = "pages/" + pagina + ".jsp";
+                                    
+                            
                             %>                                 
                             <jsp:include page="<%= pagina%>" />
                             <%
-
+                            
                                 }
-                            }
+                            }    
+                                /////////////////////////////////////    
                                 
-                                
-                            %>
+            }
+             %>
                             
         <div id="footer">
         	<div id="botnav" style="text-align:center">

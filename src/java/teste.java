@@ -102,7 +102,14 @@ public class teste {
         
        // ExamesDAO.somaTotal();
         
-        JOptionPane.showMessageDialog(null, TipoExameDAO.retornaFaturamento());
+        //JOptionPane.showMessageDialog(null, TipoExameDAO.retornaFaturamento());
+        
+        
+        
+        
+        
+        
+        
     }
             
                 

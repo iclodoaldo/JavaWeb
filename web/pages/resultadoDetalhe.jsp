@@ -21,15 +21,18 @@
     </head>
     <body>
         
-        <h1>Seu resultado.</h1>
+        
         <br>
         <% String resultado="";
             if(!request.getParameter("codigoExame").isEmpty()){
                 Integer codigoExame = Integer.parseInt(request.getParameter("codigoExame"));
                 ExamesDAO ex = new ExamesDAO();
+                
+                Exame exame = ex.retornaDetalheExame(codigoExame);
+                out.println("<h1><font color=blue >Sr(a): "+exame.getCodigoCliente().getNome()+"</font><br></h1>");
         
         resultado="<div><table width='300px' class='borda1'><tr><td colspan='2'><center><b>Exames Realizados</b></center></td></tr>";
-        Exame exame = ex.retornaDetalheExame(codigoExame);
+        
          resultado += "<tr><td>"+"Cliente: "+"</td><td>"+exame.getCodigoCliente().getNome()+"</td><tr>"
                  +"<tr><td>"+"Codigo Cliente: "+"</td><td>"+exame.getCodigoCliente().getCodigo()+"</td><tr>"
                  +"<tr><td>"+"Codigo Exame: "+"</td><td>"+exame.getCodigo()+"</td><tr>"

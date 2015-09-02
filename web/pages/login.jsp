@@ -4,11 +4,11 @@
 
 try {
      Usuario u = (Usuario)request.getSession().getAttribute("usuario");
-    //out.print(u.getNome());
-     
-    
                             %>
-                             
+                        <% if (!u.getNome().isEmpty()){%>
+                        <h1>Bem Vindo <font color="blue" ><b><%= u.getNome() %>! </b><a href="?action=logof"><b>Sair!</b></a></font></h1>
+                        <%}%>
+                                     
                             <jsp:include page="administracao.jsp" />
                             <%
 }catch (Exception e){

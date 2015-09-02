@@ -21,9 +21,7 @@
         <title>Laboratorio de Pos!</title>
     </head>
     <body>
-       <% if (!u.getNome().isEmpty()){%>
-          <h1>Bem Vindo <font color="blue" ><b><%= u.getNome() %>! </b><a href="?action=logof"><b>Sair!</b></a></font></h1>
-       <%}%>
+       
         <br>
         <br>
         <h2> <a href="?action=cadastroUsuarios"> <font color="red">Cadastro de Usuarios.</font></h2>

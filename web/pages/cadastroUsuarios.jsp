@@ -24,7 +24,7 @@
     </head>
     <body>
         <h1>Cadastro e alteração de Usuários do sistema</h1>
-        <h2><a href="?action=login">Voltar para Administração</a></h2>
+        
         <form name="cadastroUsuarios" method="post" action="?action=cadastroUsuarios">
             <br>            <sql:query var="qryUsuarios" dataSource="${ds}">
                 select * from usuario order by nome
@@ -65,7 +65,7 @@ try{
                 
                 String matricula = request.getParameter("matricula");
                 if (matricula.equals("")){matricula="0";}
-                JOptionPane.showMessageDialog(null, matricula);
+                //JOptionPane.showMessageDialog(null, matricula);
                 usuario.setMatricula(Integer.parseInt(matricula));
                 usuario.setNome(request.getParameter("nome"));
                 usuario.setLogin(request.getParameter("login"));

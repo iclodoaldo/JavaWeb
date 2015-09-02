@@ -24,7 +24,7 @@
         scope="session"/>
               
         <h1>Cadastro de Exames no sistema</h1>
-        <h2><a href="?action=login">Voltar para Administração</a></h2>
+        
         <form name="cadastroExame" method="post" action="?action=cadastroExame">
             
             <%--<br><label>Código: </label>
