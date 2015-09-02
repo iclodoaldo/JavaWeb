@@ -1,6 +1,7 @@
 
 package br.ufjf.dao;
 
+import br.ufjf.controller.exceptions.NonexistentEntityException;
 import static br.ufjf.dao.ExamesDAO.getEM;
 import br.ufjf.model.Cliente;
 import br.ufjf.model.Endereco;
@@ -60,9 +61,9 @@ public class ClienteDAO{
         }
     }  
     
-    public static Cliente getClientePorLogin(int codigo){
-        Query c = getEntityManager().createNamedQuery("Cliente.findByCodigo");
-        c.setParameter("codigo", codigo);
+    public static Cliente getClientePorCpf(String cpf){
+        Query c = getEntityManager().createNamedQuery("Cliente.findByCpf");
+        c.setParameter("cpf", cpf);
         
         try{
             return (Cliente) c.getSingleResult();
@@ -81,13 +82,9 @@ public class ClienteDAO{
 
         if (cliente.getCpf() == null) {//verifica existe...
 
-            try{em.persist(cliente);
+            em.persist(cliente);
              
-            }catch (Exception e){JOptionPane.showMessageDialog(null, e);} // executa insert
-
-        } else {
-            try{cliente = em.merge(cliente);}catch (Exception e){JOptionPane.showMessageDialog(null, e);} //executa update
-
+               
         }
         em.getTransaction().commit();
         em.close();
@@ -95,6 +92,31 @@ public class ClienteDAO{
         return cliente;
     }
     
+      public void editCliente(Cliente cliente) throws NonexistentEntityException, Exception {
+        EntityManager em = null;
+        try {
+            em = getEntityManager();
+            em.getTransaction().begin();
+            Cliente atualizaCliente = em.find(Cliente.class,cliente.getCodigo() );
+           int codigo = cliente.getCodigo();
+          
+            if (codigo != 0) {
+                em.merge(cliente);
+            }
+            em.getTransaction().commit();
+        } catch (Exception ex) {
+            String msg = ex.getLocalizedMessage();
+            if (msg == null || msg.length() == 0) {
+                
+            }
+            throw ex;
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+     
     //Delete Usuario... 
      public void removerCliente(int codigo) {
 

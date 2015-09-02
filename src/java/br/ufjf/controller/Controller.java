@@ -119,6 +119,20 @@ public class Controller extends HttpServlet {
             RequestDispatcher rd
                     = request.getRequestDispatcher("template.jsp?page=cadastroClientes");
             rd.forward(request, response);
+        }else if (action.equals("alteraClientes")) {
+
+            String codigo = request.getParameter("codigo");
+            String nome = request.getParameter("nome");
+            String cpf = request.getParameter("cpf");
+            String sexo = request.getParameter("sexo");
+            String telefone = request.getParameter("telefone");
+            String email = request.getParameter("email");
+            String login = request.getParameter("login");
+            String senha = request.getParameter("senha");
+
+            RequestDispatcher rd
+                    = request.getRequestDispatcher("template.jsp?page=alteraClientes");
+            rd.forward(request, response);
         }else if (action.equals("excluirCliente")) {
             
             String codigo = request.getParameter("codigo");
