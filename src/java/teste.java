@@ -100,12 +100,12 @@ public class teste {
                     dao.salvarCliente(cliente); */
  
         
-        ExamesDAO.somaTotal();
-            
+       // ExamesDAO.somaTotal();
+        
+        JOptionPane.showMessageDialog(null, TipoExameDAO.retornaFaturamento());
     }
-
-
-
-
-
+            
+                
+                
+                
 }

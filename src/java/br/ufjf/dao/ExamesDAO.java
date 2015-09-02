@@ -30,7 +30,7 @@ public class ExamesDAO {
         public static List<Exame> retornaTodosExames(){
          EntityManager em = getEM();
 
-        Query e = em.createNamedQuery("Exame.findAll");
+        Query e = em.createNamedQuery("Exame.findAllPorOrdem");
              
         
         try{
@@ -41,7 +41,7 @@ public class ExamesDAO {
         }
         
         }
-
+        
         public static List<Exame> retornaExames(Integer codigoCliente){
          EntityManager em = getEM();
 
@@ -96,18 +96,16 @@ public class ExamesDAO {
     }
     
     public static void somaTotal(){
-    JOptionPane.showMessageDialog(null, "lista.get(0)");
+    
             EntityManager conexao =  BancoDados.retornaBanco().createEntityManager();
             
-            JOptionPane.showMessageDialog(null, "lista.get(0)");
+            
             List<Exame>lista = ExamesDAO.retornaTodosExames();
-                JOptionPane.showMessageDialog(null, lista.get(0));
-            
-            for(int i=0;i==lista.size();i++){
-                JOptionPane.showMessageDialog(null, lista.get(i));
-            
-            }
-    
+                
+            JOptionPane.showMessageDialog(null, lista.get(0).getCodigoTipo().getCusto());
+            for (Exame lista1 : lista) {
+            JOptionPane.showMessageDialog(null, lista1.getCodigoTipo().getCusto());
+        }
     
     }
     

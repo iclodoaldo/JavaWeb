@@ -17,6 +17,22 @@ public class TipoExameDAO {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("LaboratorioPU");
     return factory.createEntityManager();
     }
+     
+     public static List<TipoExame> retornaExamesPorTipo(){
+         EntityManager em = getEM();
+
+        Query e = em.createNamedQuery("TipoExame.findByOrdenNome");
+             
+        
+        try{
+            List<TipoExame> lista =e.getResultList();
+            return lista; 
+        }catch (NoResultException ex){
+            return null;
+        }
+        
+        }
+
     
     public static TipoExame getExamePorCodigo(Integer codigoTipo){
         Query te = getEM().createNamedQuery("TipoExame.findByCodigoTipo");
@@ -51,5 +67,29 @@ public class TipoExameDAO {
 
         return tipoExame;
     }
+     
+     public static String retornaFaturamento(){
+        List <TipoExame> listaDosTipo = TipoExameDAO.retornaExamesPorTipo();
+        List <Exame> listaExame = ExamesDAO.retornaTodosExames();
+        int contador=0;
+        Double valor=0.0;
+        String mensagem="<table border=1><tr><td>Especialidade&nbsp;</td><td>&nbsp;&nbsp;Qtde&nbsp;&nbsp;</td><td>&nbsp;Arrecadacao</td></tr>";
+        for (int i = 0; i < listaDosTipo.size(); i++) {//lista de tipoexame
+            int codigoExame=listaDosTipo.get(i).getCodigoTipo();
+                for (int j = 0; j < listaExame.size(); j++) {//lista de todos exames do tipo x
+                    if (listaExame.get(j).getCodigoTipo().getCodigoTipo().equals(codigoExame)){
+                        contador++;
+                        valor+=listaDosTipo.get(i).getCusto();
+                    }
+                    }
+                    
+                    mensagem += "<tr><td>"+listaDosTipo.get(i).getNomeExame()+"&nbsp;</td><td>&nbsp;&nbsp;"+contador+"&nbsp;&nbsp;</td><td>&nbsp;R$&nbsp;"+valor+"</td></tr>";
+                    //JOptionPane.showMessageDialog(null, listaDosTipo.get(i).getNomeExame()+"-"+contador+"-"+valor);
+                    contador=0;
+                    valor=0.0;
+                }
+        mensagem+="</table><br><br><br>";
+        return mensagem;
+     }
     
 }
