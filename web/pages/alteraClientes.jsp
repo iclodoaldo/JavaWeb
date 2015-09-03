@@ -16,17 +16,17 @@
     <body>
         <form name="alteraClientes" method="post" action="?action=alteraClientes"><br><br>
             Digite o CPF do Cliente que deseja alterar: <input type="text" name="cpf2" value="" size="10" />
-            <input type="submit" value="Pesquisar" name="Pesquisar" /><br><br>
+            <%-- <input type="submit" value="Pesquisar" name="Pesquisar" /><br><br> --%>
 
 
             <%
-                String cpf = request.getParameter("cpf2");
+                String cpf = "123";
                 try {
                     Cliente cliente = new Cliente();
                     ClienteDAO dao = new ClienteDAO();
 
                     cliente = ClienteDAO.getClientePorCpf(cpf);
-                    if (cliente.getCpf() != null) {
+                    if (!cliente.getCpf().equals(null)) {
                         String nome = cliente.getNome();
 
             %>
@@ -63,28 +63,35 @@
         </form>  
         <%
 
-                    Cliente cli = new Cliente();
-                    ClienteDAO clidao = new ClienteDAO();
-                    Endereco end = new Endereco();
-                    EnderecoDAO endao = new EnderecoDAO();
+                    
 
-                    end.setLogradouro(request.getParameter("logradouro"));
-                    end.setNumero(request.getParameter("numero"));
-                    end.setBairro(request.getParameter("bairro"));
-                    end.setCep(request.getParameter("cep"));
-                    end.setCidade(request.getParameter("cidade"));
-                    end.setUf(request.getParameter("uf"));
+               Cliente cliente1 = new Cliente();
+                Endereco end = new Endereco();
+                EnderecoDAO endao = new EnderecoDAO();
 
-                    cli.setNome(request.getParameter("codigo"));
-                    cli.setEndereco(end);
-                    cli.setNome(request.getParameter("nome"));
-                    cli.setCpf(request.getParameter("cpf"));
-                    cli.setSexo(request.getParameter("sexo"));
-                    cli.setTelefone(request.getParameter("telefone"));
-                    cli.setEmail(request.getParameter("email"));
-                    cli.setSenha(request.getParameter("senha"));
+                
 
-                    clidao.editCliente(cli);
+                end.setLogradouro(request.getParameter("logradouro"));
+                end.setNumero(request.getParameter("numero"));
+                end.setBairro(request.getParameter("bairro"));
+                end.setCep(request.getParameter("cep"));
+                end.setCidade(request.getParameter("cidade"));
+                end.setUf(request.getParameter("uf"));
+                
+                cliente1.setEndereco(end);
+                cliente1.setCodigo(Integer.parseInt(request.getParameter("codigo")));
+                cliente1.setNome(request.getParameter("nome"));
+                cliente1.setCpf(request.getParameter("cpf"));
+                cliente1.setSexo(request.getParameter("sexo"));
+                cliente1.setTelefone(request.getParameter("telefone"));
+                cliente1.setEmail(request.getParameter("email"));
+                cliente1.setSenha(request.getParameter("senha"));
+
+               
+                   dao.editCliente(cliente1);
+                    %>
+                    <script> alert('Cliente CPF: ' +<%=cpf%> + ' cadastrado com sucesso!');</script>
+                    <%
                 }
             } catch (Exception e) {
 

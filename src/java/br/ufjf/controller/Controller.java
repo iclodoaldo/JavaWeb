@@ -16,7 +16,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 /**
  *
  * @author clodoaldo
@@ -34,16 +33,13 @@ public class Controller extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
-        
-       // List list = UsuarioDAO.GetAllUsuarios();
+
+        // List list = UsuarioDAO.GetAllUsuarios();
         response.setContentType("text/html;charset=UTF-8");
         String action = request.getParameter("action");
-        
-        //String acao = request.getParameter("");
-       // UsuarioDAO dao = new UsuarioDAO();
 
+        //String acao = request.getParameter("");
+        // UsuarioDAO dao = new UsuarioDAO();
         EntityManagerFactory emf
                 = Persistence.createEntityManagerFactory("LaboratorioPU");
 
@@ -78,26 +74,26 @@ public class Controller extends HttpServlet {
             RequestDispatcher rd
                     = request.getRequestDispatcher("template.jsp?page=contato");
             rd.forward(request, response);
-        }else if (action.equals("excluirUsuario")) {
-            
+        } else if (action.equals("excluirUsuario")) {
+
             String matricula = request.getParameter("matricula");
-            
+
             RequestDispatcher rd
                     = request.getRequestDispatcher("template.jsp?page=excluirUsuario");
             rd.forward(request, response);
-            
-        }else if (action.equals("alteraUsuario")) {
-            
+
+        } else if (action.equals("alteraUsuario")) {
+
             String matricula = request.getParameter("matricula");
             String nome = request.getParameter("nome");
             String login = request.getParameter("login");
             String senha = request.getParameter("senha");
             String cpf = request.getParameter("cpf");
-            
+
             RequestDispatcher rd
                     = request.getRequestDispatcher("template.jsp?page=alteraUsuario");
             rd.forward(request, response);
-            
+
         } else if (action.equals("cadastroClientes")) {
 
             String codigo = request.getParameter("codigo");
@@ -112,15 +108,33 @@ public class Controller extends HttpServlet {
             RequestDispatcher rd
                     = request.getRequestDispatcher("template.jsp?page=cadastroClientes");
             rd.forward(request, response);
-        }else if (action.equals("excluirCliente")) {
-            
+        } else if (action.equals("alteraClientes")) {
+            String Logradouro = request.getParameter("logradouro");
+            String Numero = request.getParameter("numero");
+            String Bairro = request.getParameter("bairro");
+            String Cep = request.getParameter("cep");
+            String Cidade = request.getParameter("cidade");
+            String Uf = request.getParameter("uf");
             String codigo = request.getParameter("codigo");
-            
+            String nome = request.getParameter("nome");
+            String cpf = request.getParameter("cpf");
+            String sexo = request.getParameter("sexo");
+            String telefone = request.getParameter("telefone");
+            String email = request.getParameter("email");
+            String login = request.getParameter("login");
+            String senha = request.getParameter("senha");
+
+            RequestDispatcher rd = request.getRequestDispatcher("template.jsp?page=alteraClientes");
+            rd.forward(request, response);
+        } else if (action.equals("excluirCliente")) {
+
+            String codigo = request.getParameter("codigo");
+
             RequestDispatcher rd
                     = request.getRequestDispatcher("template.jsp?page=excluirCliente");
             rd.forward(request, response);
-            
-        }else if (action.equals("cadastroTipoExame")) {
+
+        } else if (action.equals("cadastroTipoExame")) {
 
             String codigoTipo = request.getParameter("codigoTipo");
             String nomeExame = request.getParameter("nomeExame");
@@ -131,7 +145,7 @@ public class Controller extends HttpServlet {
             RequestDispatcher rd
                     = request.getRequestDispatcher("template.jsp?page=cadastroTipoExame");
             rd.forward(request, response);
-        }else if (action.equals("cadastroExame")) {
+        } else if (action.equals("cadastroExame")) {
 
             String codigoExame = request.getParameter("codigoExame");
             String codigoTipo = request.getParameter("codigoTipo");
@@ -142,7 +156,7 @@ public class Controller extends HttpServlet {
             RequestDispatcher rd
                     = request.getRequestDispatcher("template.jsp?page=cadastroExame");
             rd.forward(request, response);
-        }else if (action.equals("cadastroUsuarios")) {
+        } else if (action.equals("cadastroUsuarios")) {
             String matricula = request.getParameter("matricula");
             String nome = request.getParameter("nome");
             String login = request.getParameter("login");
@@ -166,33 +180,33 @@ public class Controller extends HttpServlet {
             RequestDispatcher rd
                     = request.getRequestDispatcher("template.jsp?page=resultados");
             rd.forward(request, response);
-        }else if (action.equals("resultadoDetalhe")){
+        } else if (action.equals("resultadoDetalhe")) {
             String codigoExame = request.getParameter("codigoExame");
             RequestDispatcher rd
                     = request.getRequestDispatcher("template.jsp?page=resultadoDetalhe");
             rd.forward(request, response);
-            
-        }else if (action.equals("logof")) {
+
+        } else if (action.equals("logof")) {
             Usuario u = new Usuario();
             u.setNome(null);
             u.setMatricula(null);
             u.setLogin(null);
             u.setCpf(null);
             u.setSenha(null);
-            
-              request.getSession().invalidate();//removeAttribute("usuario");
-              response.sendRedirect("?");
+
+            request.getSession().invalidate();//removeAttribute("usuario");
+            response.sendRedirect("?");
          //   RequestDispatcher rd
-          //          = request.getRequestDispatcher("template.jsp?action=home");
-           // rd.forward(request, response);
-        }else if (action.equals("contabilidade")) {
-            
+            //          = request.getRequestDispatcher("template.jsp?action=home");
+            // rd.forward(request, response);
+        } else if (action.equals("contabilidade")) {
+
             RequestDispatcher rd
                     = request.getRequestDispatcher("template.jsp?page=contabilidade");
             rd.forward(request, response);
         }
     }
-    
+
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
