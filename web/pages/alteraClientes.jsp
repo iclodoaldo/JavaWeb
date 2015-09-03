@@ -16,11 +16,11 @@
     <body>
         <form name="alteraClientes" method="post" action="?action=alteraClientes"><br><br>
             Digite o CPF do Cliente que deseja alterar: <input type="text" name="cpf2" value="" size="10" />
-            <%-- <input type="submit" value="Pesquisar" name="Pesquisar" /><br><br> --%>
+            <input type="submit" value="Pesquisar" name="Pesquisar" /><br><br>
 
 
             <%
-                String cpf = "123";
+                String cpf =request.getParameter("cpf2");
                 try {
                     Cliente cliente = new Cliente();
                     ClienteDAO dao = new ClienteDAO();
