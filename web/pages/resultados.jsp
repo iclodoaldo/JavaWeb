@@ -20,19 +20,17 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Laboratorio de Pos!</title>
     </head>
+    
     <body>
-        
+        <form id="formbasico">
         <%
         if(!request.getParameter("codigoCli").isEmpty()){
-        out.print("<h1>Aqui nossa pagina de Resultados</h1>");}else{out.print(
-                "<h1>Bem Vindo Visitante!</h1>"
-              + "<h1>Aqui nossa pagina de Resultados</h1>"
+        out.print("<h1 id='login'><br>Resultados de Exames</h1>");}else{out.print(
+               "<h1>Aqui nossa pagina de Resultados</h1>"
               + "<h1>Para ver sues Resultados siga os passos abaixo:</h1>"
               + "<h1>Clique no Campo de Resultado Online ao lado com seu CPF e Codigo de Acesso!</h1>");}
         
         %>
-        <br>
-        
         <br>
         <% 
             if(!request.getParameter("codigoCli").isEmpty() && !request.getParameter("senhaCli").isEmpty()){
@@ -42,7 +40,7 @@
                 
                 try{
                 eu = x.getClientePorLoginESenha(request.getParameter("codigoCli"), request.getParameter("senhaCli"));
-                out.println("<h1><font color=blue >Bem vindo Sr(a): "+eu.getNome()+"</font><br></h1>");
+                out.println("<h1 id='login'>Bem vindo Sr(a) "+eu.getNome()+"</font><br><br></h1>");
                     logado=true;
                 }catch (Exception e){
                     out.print("Codigo de acesso ou senha incorretos... ");
@@ -62,20 +60,13 @@
          soma+=exame.getCodigoTipo().getCusto();
          }
          resultado += "<tr><td>Custo para o Cliente</td><td>R$ "+soma+"</td><tr>";
-         resultado+="</table></div>";
+         resultado+="</table></div><br><br>";
          out.print(resultado);
-        //JOptionPane.showMessageDialog(null, resultado);
-        
-        
-                
-                
+      
                 }
                             }        
-                
-        
-         
-         
+    
          %>
-        
+        </form>
     </body>
 </html>

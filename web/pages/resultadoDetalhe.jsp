@@ -21,7 +21,7 @@
     </head>
     <body>
         
-        
+        <form id="formbasico">
         <br>
         <% String resultado="";
             if(!request.getParameter("codigoExame").isEmpty()){
@@ -29,7 +29,7 @@
                 ExamesDAO ex = new ExamesDAO();
                 
                 Exame exame = ex.retornaDetalheExame(codigoExame);
-                out.println("<h1><font color=blue >Sr(a): "+exame.getCodigoCliente().getNome()+"</font><br></h1>");
+                out.println("<h1 id='login'>Resultados de Sr(a) "+exame.getCodigoCliente().getNome()+"</font><br><br></h1>");
         
         resultado="<div><table width='300px' class='borda1'><tr><td colspan='2'><center><b>Exames Realizados</b></center></td></tr>";
         
@@ -41,11 +41,10 @@
                  +"<tr><td>"+"Previsao de Entrega"+"</td><td>"+exame.getDataEntrega()+"</td></tr>"
                  +"<tr><td>"+"Custo"+"</td><td>"+exame.getCodigoTipo().getCusto()+"</td></tr>";
          }
-         resultado+="</table></div>";
+         resultado+="</table></div><br><br>";
          out.print(resultado);
-        //JOptionPane.showMessageDialog(null, resultado);
-        
+              
          %>
-         
+         </form>
     </body>
 </html>

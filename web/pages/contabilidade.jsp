@@ -14,10 +14,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Contabilidade</title>
     </head>
-    <body>
-        
-        <h1>Contabilidade</h1>
-        
+    <body><form id="formbasico">
+        <br><h1 id="login">Contabilidade</h1><br>
         <%
             List <Exame> lista = ExamesDAO.retornaTodosExames();
             int contador=0;
@@ -27,13 +25,12 @@
                 valor+=lista.get(i).getCodigoTipo().getCusto();
                 contador++;
     }
-        out.println("<br><b>Foram realizados um total de "+contador+" Exames.");
-        out.println("Sendo a arrecadacao total de R$ "+valor+".<br><br>"
-                + "<center>Detalhamento por Especialidade:\n</center>  "+TipoExameDAO.retornaFaturamento()+"</b>");
+        out.println("<br><h3>Foram realizados um total de "+contador+" Exames.</h3>");
+        out.println("<h3>Arrecadação total de R$ "+valor+".</h3><br>"
+                + "<h1 id='login'>Detalhamento por Especialidade:<br></h1>  "+TipoExameDAO.retornaFaturamento());
         
         
         %>
-        
-            
+         </form>
     </body>
 </html>

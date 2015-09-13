@@ -1,5 +1,7 @@
 package br.ufjf.dao;
 
+import static br.ufjf.dao.ClienteDAO.getEntityManager;
+import br.ufjf.model.Cliente;
 import br.ufjf.model.Usuario;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -8,12 +10,13 @@ import javax.persistence.NoResultException;
 import javax.persistence.NonUniqueResultException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.swing.JOptionPane;
 
 public class UsuarioDAO {
 
     String comparalogin;
     
-    public EntityManager getEM() {
+    public static EntityManager getEM() {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("LaboratorioPU");
         return factory.createEntityManager();
     }
@@ -42,21 +45,14 @@ public class UsuarioDAO {
     }
 
     //Delete Usuario... 
-    public void removerUsuario(Usuario matricula) {
-
-        EntityManager em = getEM();
-        
+    public void removerUsuario(int matricula) {
+             EntityManager em = getEntityManager();
         Usuario usuario = em.find(Usuario.class, matricula);
 
         try {
             em.getTransaction().begin();
-
-            if (usuario.getMatricula().equals(matricula)) {
-                em.remove(usuario);
-            }
-            
+            em.remove(usuario);
             em.getTransaction().commit();
-            
         } finally {
             em.close();
         }

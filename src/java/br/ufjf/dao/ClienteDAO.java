@@ -111,10 +111,10 @@ public class ClienteDAO {
     
     }
     
-          public void editCliente(Cliente cliente) {
+          public static  void editCliente(Cliente cliente) {
        EntityManager em = null;
        
-            em = getEntityManager();
+            em = getEM();
             em.getTransaction().begin();
             Cliente atualizaCliente = em.find(Cliente.class,cliente.getCodigo() );
            int codigo = cliente.getCodigo();
@@ -137,7 +137,7 @@ public class ClienteDAO {
     //Delete Usuario... 
     public void removerCliente(int codigo) {
 
-        EntityManager em = getEntityManager();
+        EntityManager em = getEM();
         Cliente cliente = em.find(Cliente.class, codigo);
 
         try {

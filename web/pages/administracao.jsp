@@ -1,19 +1,9 @@
-
-<%-- 
-    Document   : administracao
-    Created on : 01/06/2015, 11:34:43
-    Author     : clodoaldo
---%>
-
 <%@page import="br.ufjf.model.Usuario"%>
 <%@page import="org.apache.catalina.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    Usuario u = (Usuario)session.getAttribute("usuario");
-    
-    
+    Usuario u = (Usuario) session.getAttribute("usuario");
 %>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,17 +11,18 @@
         <title>Laboratorio de Pos!</title>
     </head>
     <body>
-       
-        <br>
-        <br>
-        <h2> <a href="?action=cadastroUsuarios"> <font color="red">Cadastro de Usuarios.</font></h2>
-        <h2> <a href="?action=cadastroClientes"> <font color="green">Cadastro de Clientes.</font></h2>
-        <h2> <a href="?action=cadastroExame"> <font color="blue">Cadastro de Exames.</font></h2>
-        <h2> <a href="?action=cadastroTipoExame"> <font color="orange">Cadastro de Tipos de Exames.</font></h2>
-        <h2> <a href="?action=contabilidade"> <font color="red">Contabilidade.</font></h2>
-       
-        <br><br><br><br><br><br><br><br><br>
-        
-        
+        <form id="formbasico">
+        <div id="mainnav" >
+            <ul >
+                <li><a href="?action=cadastroUsuarios"><span>Cadastro de Usuarios</span></a></li>
+                <li><a href="?action=cadastroClientes"><span>Cadastro de Clientes</span></a></li>
+                <li><a href="?action=cadastroExame"><span>Cadastro de Exames</span></a></li>
+                <li><a href="?action=cadastroTipoExame"><span>Cadastro de Tipos de Exames</span></a></li>
+                <li><a href="?action=contabilidade"><span>Contabilidade</span></a></li>
+
+            </ul>
+        </div>
+        </form>
+        <br><br><br><br><br><br><br>
     </body>
 </html>

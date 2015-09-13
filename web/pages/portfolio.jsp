@@ -11,27 +11,30 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>CRM Laboratorios</title>
     </head>
-    <body> <br><br>
-        <h1>Confira aqui os exames disponíveis!</h1>
-        <br>
-        <h3><font color="black"> - Hemograma completo</font></h3>
-        <h3><font color="black"> - Urina</font></h3>
-        <h3><font color="black"> - Fezes</font></h3>
-        <h3><font color="black"> - Colesterol</font></h3>
-        <h3><font color="black"> - Glicemia</font></h3>
-        <h3><font color="black"> - Alfa Androstanediol Glicuronídeo</font></h3>
-        <h3><font color="black"> - Nucleotidase</font></h3>
-        <h3><font color="black"> - Radiografia panorâmica de toda a coluna vertebral</font></h3>
-        <h3><font color="black"> - Eletroforese de lipoproteínas</font></h3>
-        <h3><font color="black"> - Prova de função pumonar</font></h3>
-        <h3><font color="black"> - Momografia</font></h3>
-        <h3><font color="black"> - Desintometria óssea</font></h3>
-        <h3><font color="black"> - Tomografia Computadorizada</font></h3>
-        <h3><font color="black"> - Ultra-sonografia</font></h3>
-        <h3><font color="black"> - Ecografia</font></h3>
-        <h3><font color="black"> - Ecodopler</font></h3>
+    <body> 
         
-        <br><br><br>
+        <form id="formbasico">
+        <br><br>
+        <h1 id="login">Confira aqui os exames disponíveis!</h1>
+        <br>
+        <h3> - Hemograma completo</h3>
+        <h3> - Urina</h3>
+        <h3> - Fezes</h3>
+        <h3> - Colesterol</h3>
+        <h3> - Glicemia</h3>
+        <h3> - Alfa Androstanediol Glicuronídeo</h3>
+        <h3> - Nucleotidase</h3>
+        <h3> - Radiografia panorâmica de toda a coluna vertebral</h3>
+        <h3> - Eletroforese de lipoproteínas</h3>
+        <h3> - Prova de função pumonar</h3>
+        <h3> - Momografia</h3>
+        <h3> - Desintometria óssea</h3>
+        <h3> - Tomografia Computadorizada</h3>
+        <h3> - Ultra-sonografia</h3>
+        <h3> - Ecografia</h3>
+        <h3> - Ecodopler</h3>
+        </form>
+        <br><br>
         
     </body>
 </html>

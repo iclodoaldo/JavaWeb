@@ -1,9 +1,3 @@
-<%-- 
-    Document   : administracao
-    Created on : 01/06/2015, 11:34:43
-    Author     : clodoaldo
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,8 +5,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>CRM Laboratorios!</title>
     </head>
-    <body><br>
-        <h1>Entre em contato conosco!</h1>
+    <body>
+        <form id="formbasico">
+        <br>
+        <h1 id="login">Entre em contato conosco!</h1>
         <br>
         
         <h2><font color="blue">Juiz de Fora</font> <br><br> </h2> <h3> Avenida Rio Branco, 1324 - centro - cep: 36010010   <br><br>
@@ -33,7 +29,8 @@
              
        
         
-        <h2>Ou pelo site - <a href="?"><font color="blue">www.crmlaboratorios.com.br</font></a></h2>
+            <h2 id="login"> Ou pelo site - <a href="?"><font color="blue">www.crmlaboratorios.com.br</font></a></h2>
+        </form>
         <br><br><br><br><br><br><br><br><br>
         
     </body>
